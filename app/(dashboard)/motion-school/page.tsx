@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Home = () => {
+const Motion = () => {
   return (
-    <div>welcome to motion</div>
+    <div>Motion</div>
   )
 }
 
-export default Home
+export default Motion
