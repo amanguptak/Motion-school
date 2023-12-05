@@ -4,7 +4,7 @@ import { LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-
+import { Link } from "lucide-react";
 interface SidebarItemProps {
   icon: LucideIcon;
   label: string;
@@ -20,9 +20,7 @@ export const SidebarItem = ({
   const router = useRouter();
 
   const isActive =
-    (pathname === "/motion-school" && href === "/motion-school") ||
-    pathname === href ||
-    pathname?.startsWith(`${href}/`);
+    (pathname === href)
 
   const onClick = () => {
     router.push(href);
@@ -49,5 +47,6 @@ export const SidebarItem = ({
       </div>
       
     </button>
+ 
   )
 }
