@@ -18,7 +18,7 @@ export default function Home() {
       </div>
 
 
-      <div className="lg:col-span-6 lg:mt-[-300px] space-y-2 px-9 col-span-12 ">
+      <div className="lg:col-span-6 lg:mt-[-300px] space-y-2 lg:px-9 col-span-12 ">
        <div className="flex items-center justify-start">
        <Image src={Logo} alt="logo" height={225} width={225} className="cursor-pointer transform  hover:scale-125  transition-transform duration-300 ease-in-out"/>
         <h2 className="font-bold text-3xl text-indigo-600 ">Motion School</h2>
