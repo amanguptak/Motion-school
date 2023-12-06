@@ -22,12 +22,12 @@ const teacherRoutes = [
   {
     icon: List,
     label: "Courses",
-    href: "/teacher/courses",
+    href: "/motion-school/teacher/courses",
   },
   {
     icon: BarChart,
     label: "Analytics",
-    href: "/teacher/analytics",
+    href: "/motion-school/teacher/analytics",
   },
 ]
 

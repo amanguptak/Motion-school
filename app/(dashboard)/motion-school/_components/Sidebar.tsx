@@ -5,8 +5,8 @@ const Sidebar = () => {
   return (
  
 
-   <div className=' hover:shadow-indigo-700 cursor-pointer shadow-2xl'>
-     <div className=' h-screen w-full p-3 '>
+   <div className='bg-amber-200 w-full lg:block hover:shadow-indigo-700 cursor-pointer shadow-2xl'>
+     <div className=' h-screen  p-3 '>
         <div>
           <Logo/>
         </div>
