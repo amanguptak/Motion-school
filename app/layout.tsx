@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 
-
+import { Toaster } from 'sonner';
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 
 import { Ubuntu } from 'next/font/google';
-import { Toaster } from 'sonner';
+
 const ubuntu = Ubuntu({
   subsets: ['latin'],
   display: 'swap',

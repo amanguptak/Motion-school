@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { DoorOpen } from 'lucide-react'
 import teacher from "@/public/images/teacher.png"
 import Image from 'next/image'
+import {  toast } from 'sonner'
 const NavBarRoutes = () => {
     const router = useRouter()
     const path = usePathname()
@@ -14,10 +15,11 @@ const NavBarRoutes = () => {
       const teacherMode = ()=>{
       if(isTeacherPage){
         router.push("/motion-school")
- 
+        toast.info("Exited from teacher mode")
       }
       else{
         router.push("/motion-school/teacher")
+        toast.success('Teacher mode activated')
      
       }
 
