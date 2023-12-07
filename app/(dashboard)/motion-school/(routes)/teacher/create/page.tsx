@@ -34,9 +34,9 @@ const CreateCourse = () => {
   const onSubmit = async (values: CourseSchema) => {
     try{
       console.log(values);
-      const res = await axios.post("/api/course", values)
+      const res = await axios.post("/api/courses", values)
       form.reset()
-      router.push(`/motion-school/teacher/courses/${res?.data.id}`)
+      // router.push(`/motion-school/teacher/courses/${res?.data.id}`)
       toast.success("title created")
     }catch(err){
       console.log(err);
