@@ -36,8 +36,9 @@ const CreateCourse = () => {
       console.log(values);
       const res = await axios.post("/api/courses", values)
       form.reset()
-      // router.push(`/motion-school/teacher/courses/${res?.data.id}`)
       toast.success("title created")
+      router.push(`/motion-school/teacher/courses/${res?.data.id}`)
+     
     }catch(err){
       console.log(err);
       toast.error("something went wrong 😮")
