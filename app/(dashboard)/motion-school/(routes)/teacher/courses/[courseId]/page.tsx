@@ -1,8 +1,14 @@
 import React from 'react'
 
-const CourseId = () => {
+interface ParamsType{
+  params:{
+    courseId : string
+  } 
+}
+
+const CourseId = ({params}:ParamsType) => {
   return (
-    <div>CourseId</div>
+    <div>CourseId:{params.courseId}</div>
   )
 }
 
