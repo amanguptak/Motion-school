@@ -6,4 +6,12 @@ export const courseSchema = z.object({
 
 })
 
+
+export const customizeCourseSchema = z.object({
+    title : z.string().min(1 ,{message: "Title is required"}).max(50 ,{message: "Tittle is too long"}),
+    courseId : z.string().min(1 ,{message: "Course id is required"})
+});
+
+export type customizeCourseSchemaType = z.infer<typeof courseSchema>
+
 export type CourseSchema = z.infer<typeof courseSchema>

@@ -8,8 +8,8 @@ const backgroundVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-indigo-600",
-        success: "bg-emerald-100",
+        default: "bg-indigo-600 hover:bg-indigo-500 cursor-pointer",
+        success: "bg-emerald-100 hover:bg-emerald-200 cursor-pointer",
 
       },
       size: {
