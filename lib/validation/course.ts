@@ -12,6 +12,6 @@ export const customizeCourseSchema = z.object({
     courseId : z.string().min(1 ,{message: "Course id is required"})
 });
 
-export type customizeCourseSchemaType = z.infer<typeof courseSchema>
+export type customizeCourseSchemaType = z.infer<typeof customizeCourseSchema>
 
 export type CourseSchema = z.infer<typeof courseSchema>
