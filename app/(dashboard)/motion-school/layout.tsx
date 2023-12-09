@@ -4,7 +4,7 @@ import Navbar from "./_components/Navbar";
 const layout = ({ children }: { children: ReactNode }) => {
   return (
     <main className="h-screen  grid grid-cols-12 ">
-      <div className="lg:col-span-2 hidden   lg:local lg:block md:flex h-full md:col-span-3 flex-col inset-y-0">
+      <div className="lg:col-span-2 hidden   lg:block md:flex h-screen  md:col-span-3 flex-col inset-y-0">
         <Sidebar />
       </div>
 

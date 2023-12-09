@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import { CustomIcon } from "@/components/custom-icon";
 import CustomizeCourse from "./_components/course_form";
 import { LayoutDashboard } from "lucide-react";
+import {ImageForm} from "./_components/image-form";
 interface ParamsType {
   params: {
     courseId: string;
@@ -41,7 +42,7 @@ const CourseId = async ({ params }: ParamsType) => {
   const progressText = `(${completedField}/${totalFields})`;
 
   return (
-    <div className=" lg:h-[600px] p-7 m-6 h-[700px] mx-5 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className=" lg:h-full p-7 m-6 h-fit mx-5 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-2">
           <h1 className="text-2xl font-semibold text-slate-800">
@@ -55,7 +56,7 @@ const CourseId = async ({ params }: ParamsType) => {
 
       {/* course form setup */}
 
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-12 mt-10 ">
         <div className="flex items-center gap-x-2 col-span-12">
           <CustomIcon size='md' icon={LayoutDashboard}/>
           <h3 className="text-lg text-slate-800">
@@ -63,9 +64,12 @@ const CourseId = async ({ params }: ParamsType) => {
             Customize Your Course Here
           </h3>
         </div>
-
-        <CustomizeCourse initialData={course} courseId={params.courseId}/>
-
+        <div className="col-span-6">
+        <CustomizeCourse initialData={course} courseId={course.id}/>
+      
+        <ImageForm initialData={course} courseId={course.id}/>
+        </div>
+      
 
       </div>
     </div>
