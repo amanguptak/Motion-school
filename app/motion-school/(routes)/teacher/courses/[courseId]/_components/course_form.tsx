@@ -117,7 +117,7 @@ const CustomizeCourse = ({ initialData, courseId }: CourseFormProps) => {
                 )}
               />
               <div className="flex items-center gap-x-2">
-                <Button type="submit" disabled={isSubmitting}>
+                <Button type="submit" disabled={isSubmitting} size="sm">
                   Save
                 </Button>
               </div>

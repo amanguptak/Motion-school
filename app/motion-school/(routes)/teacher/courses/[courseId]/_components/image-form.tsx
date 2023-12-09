@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Course } from "@prisma/client";
 import Image from "next/image";
-
+import {courseImageSchemaType} from "@/lib/validation/course"
 import { Button } from "@/components/ui/button";
 import { FileImageUpload } from "@/components/file-upload";
 
@@ -33,7 +33,7 @@ const ImageForm = ({
 
   const router = useRouter();
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: courseImageSchemaType) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
       toast.success("Course Thumbnail Updated");

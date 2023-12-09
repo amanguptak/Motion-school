@@ -6,12 +6,12 @@ import { CustomIcon } from "@/components/custom-icon";
 import CustomizeCourse from "./_components/course_form";
 import { LayoutDashboard } from "lucide-react";
 import ImageForm from "./_components/image-form";
+import SelectBox from "./_components/selectbox";
 interface ParamsType {
   params: {
     courseId: string;
   };
 }
-
 
 const CourseId = async ({ params }: ParamsType) => {
   const { userId } = auth();
@@ -22,6 +22,12 @@ const CourseId = async ({ params }: ParamsType) => {
   const course = await db.course.findUnique({
     where: {
       id: params.courseId,
+    },
+  });
+
+  const category = await db.category.findMany({
+    orderBy: {
+      name: "asc",
     },
   });
 
@@ -58,19 +64,25 @@ const CourseId = async ({ params }: ParamsType) => {
 
       <div className="grid grid-cols-1 md:grid-cols-12 mt-10 ">
         <div className="flex items-center gap-x-2 col-span-12">
-          <CustomIcon size='md' icon={LayoutDashboard}/>
+          <CustomIcon size="md" icon={LayoutDashboard} />
           <h3 className="text-lg text-slate-800">
             {" "}
             Customize Your Course Here
           </h3>
         </div>
         <div className="col-span-6">
-        <CustomizeCourse initialData={course} courseId={course.id}/>
-      
-        <ImageForm initialData={course} courseId={course.id}/>
-        </div>
-      
+          <CustomizeCourse initialData={course} courseId={course.id} />
 
+          <ImageForm initialData={course} courseId={course.id} />
+          <SelectBox
+            initialData={course}
+            courseId={course.id}
+            Options={category.map((cat) => ({
+              label: cat.name,
+              value: cat.id,
+            }))}
+          />
+        </div>
       </div>
     </div>
   );
