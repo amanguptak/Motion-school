@@ -37,15 +37,15 @@ const CustomizeCourse = ({ initialData, courseId }: CourseFormProps) => {
     resolver: zodResolver(customizeCourseSchema),
     defaultValues: {
       title: initialData?.title || "",
-      courseId:courseId
+      // courseId:courseId
     },
   });
   const { isSubmitting, isValid } = form.formState;
-  const onSubmit = (values: customizeCourseSchemaType) => {
+  const onSubmit = async(values: customizeCourseSchemaType) => {
    
       try {
         console.log("update",values);
-        // const res = await axios.post("/api/courses", values)
+        const res = await axios.patch(`/api/courses/${courseId}`, values)
         // form.reset()
         toast.success("title created");
         // router.push(`/motion-school/teacher/courses/${res?.data.id}`)

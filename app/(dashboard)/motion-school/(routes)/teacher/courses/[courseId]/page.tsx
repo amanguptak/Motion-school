@@ -55,7 +55,7 @@ const CourseId = async ({ params }: ParamsType) => {
 
       {/* course form setup */}
 
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-12 mt-10">
         <div className="flex items-center gap-x-2 col-span-12">
           <CustomIcon size='md' icon={LayoutDashboard}/>
           <h3 className="text-lg text-slate-800">
