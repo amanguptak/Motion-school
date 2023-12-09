@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { CustomIcon } from "@/components/custom-icon";
 import CustomizeCourse from "./_components/course_form";
 import { LayoutDashboard } from "lucide-react";
-import {ImageForm} from "./_components/image-form";
+import ImageForm from "./_components/image-form";
 interface ParamsType {
   params: {
     courseId: string;

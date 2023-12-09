@@ -9,7 +9,7 @@ interface FileUploadProps{
     endpoint : keyof typeof ourFileRouter;
 }
 
-export const FileUpload=({onChange , endpoint}: FileUploadProps)=>{
+export const FileImageUpload=({onChange , endpoint}: FileUploadProps)=>{
     return (
 
         <UploadDropzone
