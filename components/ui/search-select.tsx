@@ -52,9 +52,10 @@ export function SearchSelect({ options , value ,onChange } : SearchSelectProps) 
               <CommandItem
                 key={option.value}
                 value={option.value}
-               onSelect={()=>{
-                onChange(option.value === value ? " " : option.value);
-               }}
+                onSelect={() => {
+                  onChange(option.value === value ? "" : option.value)
+                  setOpen(false)
+                }}
               >
                 <Check
                   className={cn(

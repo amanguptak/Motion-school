@@ -6,13 +6,13 @@ import { CustomIcon } from "@/components/custom-icon";
 import CustomizeCourse from "./_components/course_form";
 import { LayoutDashboard } from "lucide-react";
 import ImageForm from "./_components/image-form";
-import SelectBox from "./_components/selectbox";
+// import SelectBox from "./_components/selectbox";
 interface ParamsType {
   params: {
     courseId: string;
   };
 }
-
+import {SelectBox} from "./_components/selectb2"
 const CourseId = async ({ params }: ParamsType) => {
   const { userId } = auth();
   if (!userId) {
@@ -74,13 +74,21 @@ const CourseId = async ({ params }: ParamsType) => {
           <CustomizeCourse initialData={course} courseId={course.id} />
 
           <ImageForm initialData={course} courseId={course.id} />
-          <SelectBox
+          {/* <SelectBox
             initialData={course}
             courseId={course.id}
             Options={category.map((cat) => ({
               label: cat.name,
               value: cat.id,
             }))}
+          /> */}
+          <SelectBox
+          initialData={course}
+          courseId={course.id}
+          options={category.map((cat) => ({
+            label: cat.name,
+            value: cat.id,
+          }))}
           />
         </div>
       </div>

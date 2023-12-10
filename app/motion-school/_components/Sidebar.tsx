@@ -5,11 +5,11 @@ const Sidebar = () => {
   return (
  
 
-   <div className='w-full h-[1100px] lg:block hover:shadow-indigo-700 cursor-pointer shadow-2xl'>
-     <div className='h-screen p-3 '>
-        <div>
+   <div className='w-full h-screen  lg:block hover:shadow-indigo-700 cursor-pointer shadow-2xl'>
+     <div className='p-3 h-screen'>
+ 
           <Logo/>
-        </div>
+    
       
         <div className="flex flex-col w-full mt-3">
         <SidebarRoutes/>

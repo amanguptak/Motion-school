@@ -21,7 +21,7 @@ import { toast } from "sonner";
 interface SelectBoxProps {
   initialData: Course;
   courseId: string;
-  Options: { label: string; value: string }[];
+  Options: { label: string ; value: string }[];
 }
 
 const SelectBox = ({ initialData, courseId, Options }: SelectBoxProps) => {
@@ -36,7 +36,7 @@ const SelectBox = ({ initialData, courseId, Options }: SelectBoxProps) => {
   const onSubmit = async (values: courseCatSchemaType) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("category Updated");
+      toast.success("Category Added successfully");
 
       router.refresh();
     } catch {
@@ -58,7 +58,7 @@ const SelectBox = ({ initialData, courseId, Options }: SelectBoxProps) => {
                 </FormLabel>
 
                 <FormControl>
-                  <SearchSelect options={...Options} {...field} />
+                  <SearchSelect options={Options} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
