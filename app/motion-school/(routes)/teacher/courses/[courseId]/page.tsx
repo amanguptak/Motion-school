@@ -14,7 +14,7 @@ interface ParamsType {
 }
 import {SelectBox} from "./_components/select-box"
 import PriceForm from "./_components/price";
-import ResourcesForm from "./_components/resourses";
+import {ResourcesForm} from "./_components/resourses";
 const CourseId = async ({ params }: ParamsType) => {
   const { userId } = auth();
   if (!userId) {
@@ -29,7 +29,7 @@ const CourseId = async ({ params }: ParamsType) => {
       
       attachments: {
         orderBy: {
-          name: "desc",
+          createdAt: "desc",
         },
       },
     },

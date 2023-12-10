@@ -27,8 +27,8 @@ model Course {
   isPublished Boolean @default(false)
 
   categoryId  String?
-  category    Category?     @relation(fields: [categoryId], references: [id])
-  attachments Attachments[]
+  category    Category?    @relation(fields: [categoryId], references: [id])
+  attachments Attachment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
@@ -36,14 +36,17 @@ model Course {
   @@index([categoryId])
 }
 
-model Attachments {
+//Note: Attachment table should be diffrent from Course table attachements key it should not be same as Attachments(Like this othrerwise it will create an error)
+
+model Attachment {
   id       String @id @default(uuid())
   name     String
   url      String @db.Text
   courseId String
   course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   @@index([courseId])
 }
