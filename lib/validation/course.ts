@@ -25,7 +25,12 @@ export const courseImageSchema = z.object({
 export const courseCatSchema = z.object({
   categoryId: z.string().min(1, { message: "Category is required" }),
 });
+
+export const priceFormSchema = z.object({ 
+  price : z.coerce.number()
+})
 export type CourseSchema = z.infer<typeof courseSchema>;
 export type customizeCourseSchemaType = z.infer<typeof customizeCourseSchema>;
 export type courseImageSchemaType = z.infer<typeof courseImageSchema>;
 export type courseCatSchemaType = z.infer<typeof courseCatSchema>;
+export type priceFormSchemaType = z.infer<typeof priceFormSchema>;

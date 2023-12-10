@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { CustomIcon } from "@/components/custom-icon";
 import CustomizeCourse from "./_components/course_form";
-import { LayoutDashboard } from "lucide-react";
+import { CircleDollarSign, LayoutDashboard, ListChecks } from "lucide-react";
 import ImageForm from "./_components/image-form";
 // import SelectBox from "./_components/selectbox";
 interface ParamsType {
@@ -12,7 +12,9 @@ interface ParamsType {
     courseId: string;
   };
 }
-import {SelectBox} from "./_components/selectb2"
+import {SelectBox} from "./_components/select-box"
+import PriceForm from "./_components/price";
+import ResourcesForm from "./_components/resourses";
 const CourseId = async ({ params }: ParamsType) => {
   const { userId } = auth();
   if (!userId) {
@@ -23,6 +25,15 @@ const CourseId = async ({ params }: ParamsType) => {
     where: {
       id: params.courseId,
     },
+    include: {
+      
+      attachments: {
+        orderBy: {
+          name: "desc",
+        },
+      },
+    },
+   
   });
 
   const category = await db.category.findMany({
@@ -62,7 +73,9 @@ const CourseId = async ({ params }: ParamsType) => {
 
       {/* course form setup */}
 
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-12 mt-10 space-y-4 md:space-y-0">
+       
+        <div className="col-span-6">
         <div className="flex items-center gap-x-2 col-span-12">
           <CustomIcon size="md" icon={LayoutDashboard} />
           <h3 className="text-lg text-slate-800">
@@ -70,7 +83,6 @@ const CourseId = async ({ params }: ParamsType) => {
             Customize Your Course Here
           </h3>
         </div>
-        <div className="col-span-6">
           <CustomizeCourse initialData={course} courseId={course.id} />
 
           <ImageForm initialData={course} courseId={course.id} />
@@ -90,6 +102,35 @@ const CourseId = async ({ params }: ParamsType) => {
             value: cat.id,
           }))}
           />
+        </div>
+
+        <div className="col-span-6 lg:ml-6 space-y-3">
+        <PriceForm initialData={course}
+          courseId={course.id}/>
+
+       <ResourcesForm 
+       initialData={course}
+       courseId={course.id}
+       />
+
+        <div className="flex items-center gap-x-2 col-span-12">
+          <CustomIcon size="md" icon={ListChecks} />
+          <h3 className="text-lg text-slate-800">
+            {" "}
+            Course Chapters
+          </h3>
+        </div>
+       
+<div>
+  Todo chapters
+</div>
+
+
+   
+        
+       
+       
+
         </div>
       </div>
     </div>

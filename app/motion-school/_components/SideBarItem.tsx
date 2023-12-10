@@ -35,7 +35,7 @@ export const SidebarItem = ({
         isActive && "rounded-lg text-indigo-600 bg-indigo-200/20 hover:bg-indigo-400/20 hover:text-indigo-800"
       )}
     >
-      <div className="flex w-fit items-center gap-x-2 py-4">
+      <div className="flex w-fit h-full items-center gap-x-2 py-4">
         <Icon
           size={22}
           className={cn(
