@@ -29,6 +29,11 @@ export const courseCatSchema = z.object({
 export const priceFormSchema = z.object({ 
   price : z.coerce.number()
 })
+
+export const chaptersSchema = z.object({
+  
+})
+
 export type CourseSchema = z.infer<typeof courseSchema>;
 export type customizeCourseSchemaType = z.infer<typeof customizeCourseSchema>;
 export type courseImageSchemaType = z.infer<typeof courseImageSchema>;

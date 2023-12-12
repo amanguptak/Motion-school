@@ -15,6 +15,7 @@ interface ParamsType {
 import {SelectBox} from "./_components/select-box"
 import PriceForm from "./_components/price";
 import {ResourcesForm} from "./_components/resourses";
+import Lessons from './_components/lessons';
 const CourseId = async ({ params }: ParamsType) => {
   const { userId } = auth();
   if (!userId) {
@@ -24,9 +25,14 @@ const CourseId = async ({ params }: ParamsType) => {
   const course = await db.course.findUnique({
     where: {
       id: params.courseId,
+      userId
     },
     include: {
-      
+      chapters:{
+orderBy:{
+  position : "asc"
+}
+      },
       attachments: {
         orderBy: {
           createdAt: "desc",
@@ -115,13 +121,7 @@ const CourseId = async ({ params }: ParamsType) => {
        courseId={course.id}
        />
 
-        <div className="flex items-center gap-x-2 col-span-12">
-          <CustomIcon size="md" icon={ListChecks} />
-          <h3 className="text-lg text-slate-800">
-            {" "}
-            Course Chapters
-          </h3>
-        </div>
+      <Lessons/>
        
 <div>
   Todo chapters
