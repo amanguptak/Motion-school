@@ -1,3 +1,4 @@
+
 import { z } from "zod";
 
 export const courseSchema = z.object({
@@ -31,10 +32,11 @@ export const priceFormSchema = z.object({
 })
 
 export const chaptersSchema = z.object({
-  
+  title : z.string().min(1, { message: "Title is required" })
 })
 
 export type CourseSchema = z.infer<typeof courseSchema>;
+export type chaptersSchemaType = z.infer<typeof chaptersSchema>;
 export type customizeCourseSchemaType = z.infer<typeof customizeCourseSchema>;
 export type courseImageSchemaType = z.infer<typeof courseImageSchema>;
 export type courseCatSchemaType = z.infer<typeof courseCatSchema>;

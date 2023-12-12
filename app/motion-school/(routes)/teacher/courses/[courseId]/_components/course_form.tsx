@@ -31,7 +31,7 @@ interface CourseFormProps {
 }
 
 const CustomizeCourse = ({ initialData, courseId }: CourseFormProps) => {
-  const [isEditing, setIsEditing] = useState(false);
+ 
 
   const form = useForm<customizeCourseSchemaType>({
     resolver: zodResolver(customizeCourseSchema),

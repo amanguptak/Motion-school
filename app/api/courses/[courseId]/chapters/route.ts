@@ -17,7 +17,7 @@ try{
         }
     })
     if (!courseOwner) {
-        return new NextResponse("Unauthorized", { status: 401 });
+        return new NextResponse("Unauthorized Owner", { status: 401 });
       }
 
 const lastAddedChapter =  await db.chapter.findFirst({

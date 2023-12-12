@@ -166,7 +166,7 @@ export const ResourcesForm = ({
   }
 
   return (
-    <div className="mt-6  bg-indigo-50 rounded-md p-4">
+    <div className="mt-6  bg-transparent border border-white rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
         Course attachments
         <Button onClick={toggleEdit} variant="ghost">

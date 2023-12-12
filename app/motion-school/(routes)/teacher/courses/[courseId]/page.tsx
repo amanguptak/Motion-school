@@ -121,11 +121,12 @@ orderBy:{
        courseId={course.id}
        />
 
-      <Lessons/>
+      <Lessons 
+       initialData={course}
+       courseId={course.id}
+      />
        
-<div>
-  Todo chapters
-</div>
+
 
 
    
