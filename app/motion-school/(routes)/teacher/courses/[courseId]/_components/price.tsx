@@ -102,7 +102,7 @@ const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
                 )}
               />
 
-              <div className="flex items-center gap-x-2">
+              <div className="flex items-center gap-x-2 justify-end">
                 <Button type="submit" disabled={isSubmitting} size="sm">
                   Save
                 </Button>

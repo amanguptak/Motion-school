@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { AppWindow, AppleIcon, Check, ChevronsUpDown, ImageDown } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { courseCatSchemaType, courseCatSchema } from "@/lib/validation/course";
@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/popover";
 import { toast } from "sonner";
 import { Course } from "@prisma/client";
+import { CustomIcon } from "@/components/custom-icon";
 
 interface SelectBoxProps {
   initialData: Course;
@@ -68,7 +69,14 @@ export function SelectBox({ options, courseId, initialData }: SelectBoxProps) {
   };
 
   return (
+   <>
+    <div className="flex flex-row items-center space-x-2">
+    <CustomIcon size="md" icon={AppWindow} />
+    <h3 className="text-lg text-slate-800">Category</h3>
+     
+    </div>
     <div className="mt-3">
+     
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -76,9 +84,7 @@ export function SelectBox({ options, courseId, initialData }: SelectBoxProps) {
             name="categoryId"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel className="text-slate-600 text-sm">
-                  Category
-                </FormLabel>
+          
                 <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -141,6 +147,6 @@ export function SelectBox({ options, courseId, initialData }: SelectBoxProps) {
           </div>
         </form>
       </Form>
-    </div>
+    </div></>
   );
 }

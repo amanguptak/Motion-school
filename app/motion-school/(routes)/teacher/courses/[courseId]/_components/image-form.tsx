@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { Pencil, PlusCircle, ImageIcon } from "lucide-react";
+import { Pencil, PlusCircle, ImageIcon, ImageDown } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -11,6 +11,7 @@ import Image from "next/image";
 import {courseImageSchemaType} from "@/lib/validation/course"
 import { Button } from "@/components/ui/button";
 import { FileImageUpload } from "@/components/file-upload";
+import { CustomIcon } from '@/components/custom-icon';
 
 interface ImageFormProps {
   initialData: Course
@@ -47,8 +48,13 @@ const ImageForm = ({
   return (
     <div className="mt-3">
       <div className="text-sm flex items-center justify-between">
-        Course image
-        <Button onClick={toggleEdit}  variant="ghost">
+     
+     <div className="flex flex-row items-center space-x-2">
+     <CustomIcon size="md" icon={ImageDown} />
+     <h3 className="text-lg text-slate-800">Image</h3>
+      
+     </div>
+     <Button onClick={toggleEdit}  variant="ghost">
           {isEditing && (
             <>Cancel</>
           )}

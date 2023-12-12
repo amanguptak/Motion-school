@@ -89,7 +89,7 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
 
                     <FormControl>
                       <Input
-                        placeholder="Course Lessons' Title"
+                        placeholder="Lessons' Title"
                         disabled={isSubmitting}
                         {...field}
                       />
