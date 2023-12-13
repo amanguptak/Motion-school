@@ -12,10 +12,10 @@ interface ParamsType {
     courseId: string;
   };
 }
-import {SelectBox} from "./_components/select-box"
+import { SelectBox } from "./_components/select-box";
 import PriceForm from "./_components/price";
-import {ResourcesForm} from "./_components/resourses";
-import Lessons from './_components/lessons';
+import { ResourcesForm } from "./_components/resourses";
+import Lessons from "./_components/lessons";
 const CourseId = async ({ params }: ParamsType) => {
   const { userId } = auth();
   if (!userId) {
@@ -25,13 +25,13 @@ const CourseId = async ({ params }: ParamsType) => {
   const course = await db.course.findUnique({
     where: {
       id: params.courseId,
-      userId
+      userId,
     },
     include: {
-      chapters:{
-orderBy:{
-  position : "asc"
-}
+      chapters: {
+        orderBy: {
+          position: "asc",
+        },
       },
       attachments: {
         orderBy: {
@@ -39,7 +39,6 @@ orderBy:{
         },
       },
     },
-   
   });
 
   const category = await db.category.findMany({
@@ -65,7 +64,7 @@ orderBy:{
   const progressText = `(${completedField}/${totalFields})`;
 
   return (
-    <div className=" lg:h-screen h-fit overflow-y-scroll  scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-amber-200 lg:scrollbar-track-indigo-500 p-7 m-6  mx-5 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className=" lg:h-screen  h-fit  overflow-y-scroll overflow-x-hidden scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-amber-200 lg:scrollbar-track-indigo-500 p-7 m-6  mx-5 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-1">
           <h1 className="text-2xl font-semibold text-slate-800">
@@ -80,60 +79,33 @@ orderBy:{
       {/* course form setup */}
 
       <div className="grid grid-cols-1 md:grid-cols-12 mt-10 space-y-4 md:space-y-0">
-       
         <div className="col-span-6">
-        <div className="flex items-center gap-x-2 col-span-12">
-          <CustomIcon size="md" icon={LayoutDashboard} />
-          <h3 className="text-lg text-slate-800">
-            {" "}
-            Customize Your Course Here
-          </h3>
-        </div>
+          <div className="flex items-center gap-x-2 col-span-12">
+            <CustomIcon size="md" icon={LayoutDashboard} />
+            <h3 className="text-lg text-slate-800">
+              {" "}
+              Customize Your Course Here
+            </h3>
+          </div>
           <CustomizeCourse initialData={course} courseId={course.id} />
 
-          <ImageForm initialData={course} courseId={course.id} />
-          {/* <SelectBox
+          <SelectBox
             initialData={course}
             courseId={course.id}
-            Options={category.map((cat) => ({
+            options={category.map((cat) => ({
               label: cat.name,
               value: cat.id,
             }))}
-          /> */}
-           <SelectBox
-          initialData={course}
-          courseId={course.id}
-          options={category.map((cat) => ({
-            label: cat.name,
-            value: cat.id,
-          }))}
           />
-         
+          <ImageForm initialData={course} courseId={course.id} />
         </div>
 
-        <div className="col-span-6 lg:ml-6 space-y-3">
+        <div className="col-span-6 space-y-6 ml-4">
        
-        <PriceForm initialData={course}
-          courseId={course.id}/>
+          <PriceForm initialData={course} courseId={course.id} />
 
-       <ResourcesForm 
-       initialData={course}
-       courseId={course.id}
-       />
-
-      <Lessons 
-       initialData={course}
-       courseId={course.id}
-      />
-       
-
-
-
-   
-        
-       
-       
-
+          <ResourcesForm initialData={course} courseId={course.id} />
+          <Lessons initialData={course} courseId={course.id} />
         </div>
       </div>
     </div>

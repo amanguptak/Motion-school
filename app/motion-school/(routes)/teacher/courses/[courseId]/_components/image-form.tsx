@@ -46,7 +46,7 @@ const ImageForm = ({
   }
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 ">
       <div className="text-sm flex items-center justify-between">
      
      <div className="flex flex-row items-center space-x-2">

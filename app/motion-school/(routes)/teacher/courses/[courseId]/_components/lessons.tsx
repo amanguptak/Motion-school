@@ -21,7 +21,7 @@ import axios from "axios";
 import { Chapter, Course } from "@prisma/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import LessonList from './lesson-list';
+import LessonList from "./lesson-list";
 
 interface lessonsProps {
   initialData: Course & { chapters: Chapter[] };
@@ -39,9 +39,9 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
 
   const [chapterAdd, setChapterAdd] = useState(false);
   const [modified, setModified] = useState(false);
-const router = useRouter()
+  const router = useRouter();
   const editMode = () => {
-    setChapterAdd((current)=>!current)
+    setChapterAdd((current) => !current);
   };
   const onSubmit = async (values: chaptersSchemaType) => {
     try {
@@ -49,8 +49,8 @@ const router = useRouter()
       const res = await axios.post(`/api/courses/${courseId}/chapters`, values);
 
       toast.success("Lesson title created");
-      setChapterAdd(false)
-      router.refresh()
+      setChapterAdd(false);
+      router.refresh();
       // router.push(`/motion-school/teacher/courses/${res?.data.id}`)
     } catch (err) {
       console.log(err);
@@ -58,20 +58,24 @@ const router = useRouter()
     }
   };
   return (
-    <div className="space-x-2">
-      <div className="flex items-center gap-x-2 justify-between mb-2">
-       <div className="flex flex-row items-center space-x-2">
-       <CustomIcon size="md" icon={ListChecks} />
-        <h3 className="text-lg text-slate-800"> Course Lessons</h3>
-       </div>
+    <div className="col-span-6">
+      <div className="flex items-center gap-x-2 justify-between mb-4">
+        <div className="flex flex-row items-center space-x-2">
+          <CustomIcon size="md" icon={ListChecks} />
+          <h3 className="text-lg text-slate-800"> Course Lessons</h3>
+        </div>
 
-        <Button onClick={editMode} variant="ghost" className="rounded-full" title="Add Lessons 😉">
+        <Button
+          onClick={editMode}
+          variant="ghost"
+          className="rounded-full"
+          title="Add Lessons 😉"
+        >
           {chapterAdd ? (
             <>Cancel</>
           ) : (
             <>
-              <PlusCircle size={20}/>
-          
+              <PlusCircle size={20} />
             </>
           )}
         </Button>
@@ -113,21 +117,18 @@ const router = useRouter()
       )}
 
       {!chapterAdd && (
-        <div>{!initialData.chapters.length && "No Lessons are Added"}
+        <div>
+          {!initialData.chapters.length && "No Lessons are Added"}
           <div>
-          <LessonList 
-            items={initialData.chapters || []}
-            onReorder={()=>{}}
-            onEdit={()=>{}}
-          />
-           {/* <ChaptersList
-            onEdit={onEdit}
-            onReorder={onReorder}
-          /> */}
-        </div>
+            <LessonList
+              items={initialData.chapters || []}
+              onReorder={() => {}}
+              onEdit={() => {}}
+            />
+          </div>
         </div>
       )}
-     
+
       {!chapterAdd && (
         <p className="text-xs text-slate-500">
           Drag and drop to reorder the lessons

@@ -33,7 +33,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
-
+    console.log(result)
     const items = Array.from(lessons);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
@@ -45,12 +45,12 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
 
     setLessons(items);
 
-    // const bulkUpdateData = updatedlessons.map((lesson) => ({
-    //   id: lesson.id,
-    //   position: items.findIndex((item) => item.id === lesson.id)
-    // }));
+    const bulkUpdateData = updatedlessons.map((lesson) => ({
+      id: lesson.id,
+      position: items.findIndex((item) => item.id === lesson.id)
+    }));
 
-    // onReorder(bulkUpdateData);
+    onReorder(bulkUpdateData);
   }
 
   if (!mounted) {
@@ -59,7 +59,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
 
 
   return (
-    <>
+    <div className="lg:col-span-6 h-fit">
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="lessons">
         {/* Now when wrapping our lessons with a Droppable, we get an error: children is not a function. The Droppable utilizes the Render Props pattern and expects its child to be a function that returns a react component. To fix this, we have to put our TaskList inside of a function. */}
@@ -121,7 +121,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
           )}
         </Droppable>
       </DragDropContext>
-    </>
+    </div>
   );
 };
 
