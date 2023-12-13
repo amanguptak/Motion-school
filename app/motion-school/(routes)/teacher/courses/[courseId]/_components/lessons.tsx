@@ -21,6 +21,7 @@ import axios from "axios";
 import { Chapter, Course } from "@prisma/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import LessonList from './lesson-list';
 
 interface lessonsProps {
   initialData: Course & { chapters: Chapter[] };
@@ -38,7 +39,7 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
 
   const [chapterAdd, setChapterAdd] = useState(false);
   const [modified, setModified] = useState(false);
-
+const router = useRouter()
   const editMode = () => {
     setChapterAdd((current)=>!current)
   };
@@ -48,6 +49,8 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
       const res = await axios.post(`/api/courses/${courseId}/chapters`, values);
 
       toast.success("Lesson title created");
+      setChapterAdd(false)
+      router.refresh()
       // router.push(`/motion-school/teacher/courses/${res?.data.id}`)
     } catch (err) {
       console.log(err);
@@ -110,9 +113,21 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
       )}
 
       {!chapterAdd && (
-        <div>{!initialData.chapters.length && "No Lessons are Added"}</div>
+        <div>{!initialData.chapters.length && "No Lessons are Added"}
+          <div>
+          <LessonList 
+            items={initialData.chapters || []}
+            onReorder={()=>{}}
+            onEdit={()=>{}}
+          />
+           {/* <ChaptersList
+            onEdit={onEdit}
+            onReorder={onReorder}
+          /> */}
+        </div>
+        </div>
       )}
-
+     
       {!chapterAdd && (
         <p className="text-xs text-slate-500">
           Drag and drop to reorder the lessons
