@@ -49,13 +49,34 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
       const res = await axios.post(`/api/courses/${courseId}/chapters`, values);
 
       toast.success("Lesson title created");
+      form.reset()
       setChapterAdd(false);
       router.refresh();
+     
       // router.push(`/motion-school/teacher/courses/${res?.data.id}`)
     } catch (err) {
       console.log(err);
       toast.error("something went wrong 😮");
     }
+  };
+
+  const onReorder = async (updateData: { id: string; position: number }[]) => {
+    try {
+      setModified(true);
+      await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
+        list: updateData,
+      });
+      toast.success("Chapters reordered");
+      router.refresh();
+    } catch (err) {
+      toast.error("Something went wrong");
+    } finally {
+      setModified(false);
+    }
+  };
+
+  const onEdit = (id: string) => {
+    router.push(`/teacher/courses/${courseId}/lessons/${id}`);
   };
   return (
     <div className="col-span-6">
@@ -122,7 +143,7 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
           <div>
             <LessonList
               items={initialData.chapters || []}
-              onReorder={() => {}}
+              onReorder={onReorder}
               onEdit={() => {}}
             />
           </div>
