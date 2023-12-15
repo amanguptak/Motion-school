@@ -86,13 +86,13 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
                         className={cn(
                           "px-2 py-3 border-r border-r-amber-200 hover:bg-indigo-500 rounded-l-md transition",
                           lesson.isPublished &&
-                            "border-r-sky-200 hover:bg-sky-200"
+                            "border-r-indigo-200 hover:bg-indigo-200"
                         )}
                         {...provided.dragHandleProps}
                       >
                         <Grip size={20} className="text-amber-400"/>
                       </div>
-                     <span className="text-slate-400"> {lesson.title}</span>
+                     <span className="text-slate-700"> {lesson.title}</span>
                       <div className="ml-auto pr-2 flex items-center gap-x-2">
                         {lesson.isFree && <Badge>Free</Badge>}
                         <Badge

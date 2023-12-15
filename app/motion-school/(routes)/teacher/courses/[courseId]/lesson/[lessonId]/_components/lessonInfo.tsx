@@ -22,16 +22,17 @@ import {
   customizeCourseSchemaType,
   customizeCourseSchema,
 } from "@/lib/validation/course";
-import { LayoutDashboard, Pencil, Router } from "lucide-react";
-import { Course } from "@prisma/client";
+import { LayoutDashboard, Pencil } from "lucide-react";
+import { Chapter, Course } from "@prisma/client";
 import { CustomIcon } from "@/components/custom-icon";
 
-interface CourseFormProps {
-  initialData: Course
+interface LessonInfoProps {
+  initialData: Chapter
   courseId: string;
+  lessonId:string
 }
 
-const CustomizeCourse = ({ initialData, courseId }: CourseFormProps) => {
+const LessonInfo = ({ initialData, courseId ,lessonId }: LessonInfoProps) => {
  
 const router = useRouter()
   const form = useForm<customizeCourseSchemaType>({
@@ -45,9 +46,9 @@ const router = useRouter()
   const onSubmit = async (values: customizeCourseSchemaType) => {
     try {
       console.log("update", values);
-      const res = await axios.patch(`/api/courses/${courseId}`, values);
+      const res = await axios.patch(`/api/courses/${courseId}/chapters/${lessonId}`, values);
       // form.reset()
-      toast.success("Course Info created");
+      toast.success("Lesson info created");
       router.refresh()
       // router.push(`/motion-school/teacher/courses/${res?.data.id}`)
     } catch (err) {
@@ -58,12 +59,12 @@ const router = useRouter()
 
   return (
     <>
-      <div className="col-span-6">
+      <div className="col-span-6 mt-6">
       <div className="flex items-center gap-x-2">
             <CustomIcon size="md" icon={LayoutDashboard} />
             <h3 className="text-lg text-slate-800">
               {" "}
-             Course Info Here
+              Lesson Info Here
             </h3>
           </div>
 
@@ -124,4 +125,4 @@ const router = useRouter()
   );
 };
 
-export default CustomizeCourse;
+export default LessonInfo;

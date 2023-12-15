@@ -64,7 +64,7 @@ const CourseId = async ({ params }: ParamsType) => {
   const progressText = `(${completedField}/${totalFields})`;
 
   return (
-    <div className=" lg:h-screen  h-fit  overflow-y-scroll overflow-x-hidden scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-[#e6e8fe] lg:scrollbar-track-indigo-500 p-7 m-6  lg:mx-auto shadow-lg items-center justify-center max-w-4xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className=" lg:h-screen  h-fit  overflow-y-scroll overflow-x-hidden scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-[#e6e8fe] lg:scrollbar-track-indigo-500 p-7 m-5 shadow-lg items-center justify-center w-fit  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-1">
           <h1 className="text-2xl font-semibold text-slate-800">
@@ -78,15 +78,9 @@ const CourseId = async ({ params }: ParamsType) => {
 
       {/* course form setup */}
 
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-10 space-y-4 md:space-y-0">
+      <div className="grid grid-cols-1 md:grid-cols-12 mt-8 gap-x-6 space-y-4 md:space-y-0">
         <div className="col-span-6">
-          <div className="flex items-center gap-x-2 col-span-12">
-            <CustomIcon size="md" icon={LayoutDashboard} />
-            <h3 className="text-lg text-slate-800">
-              {" "}
-              Customize Your Course Here
-            </h3>
-          </div>
+         
           <CustomizeCourse initialData={course} courseId={course.id} />
 
           <SelectBox

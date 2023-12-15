@@ -76,7 +76,7 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
   };
 
   const onEdit = (id: string) => {
-    router.push(`/teacher/courses/${courseId}/lessons/${id}`);
+    router.push(`/motion-school/teacher/courses/${courseId}/lesson/${id}`);
   };
   return (
     <div className="col-span-6">
@@ -144,7 +144,7 @@ const lessons = ({ initialData, courseId }: lessonsProps) => {
             <LessonList
               items={initialData.chapters || []}
               onReorder={onReorder}
-              onEdit={() => {}}
+              onEdit={onEdit}
             />
           </div>
         </div>

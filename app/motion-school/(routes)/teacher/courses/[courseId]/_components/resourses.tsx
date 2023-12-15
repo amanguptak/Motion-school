@@ -196,8 +196,8 @@ export const ResourcesForm = ({
                   className="flex items-center p-3 w-full bg-indigo-100 border-indigo-200 border text-indigo-700 rounded-md"
                 >
                   <File className="h-4 w-4 mr-2 flex-shrink-0" />
-                  <p className="text-xs line-clamp-3">
-                    {attachment.name}
+                  <p className="text-xs">
+                    {attachment.name}..
                   </p>
                   {deletingId === attachment.id && (
                     <div>
