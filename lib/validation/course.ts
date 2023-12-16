@@ -23,6 +23,10 @@ export const courseImageSchema = z.object({
   }),
 });
 
+export const lessonVideoSchema = z.object({
+  videoUrl: z.string().min(1, {message:"video is required"}),
+});
+
 export const courseCatSchema = z.object({
   categoryId: z.string().min(1, { message: "Category is required" }),
 });
@@ -35,9 +39,15 @@ export const chaptersSchema = z.object({
   title : z.string().min(1, { message: "Title is required" })
 })
 
+export const chapterAccessSchema = z.object({
+  isFree : z.boolean().default(false)
+})
+
 export type CourseSchema = z.infer<typeof courseSchema>;
 export type chaptersSchemaType = z.infer<typeof chaptersSchema>;
+export type chapterAccessSchemaType = z.infer<typeof chapterAccessSchema>
 export type customizeCourseSchemaType = z.infer<typeof customizeCourseSchema>;
 export type courseImageSchemaType = z.infer<typeof courseImageSchema>;
 export type courseCatSchemaType = z.infer<typeof courseCatSchema>;
 export type priceFormSchemaType = z.infer<typeof priceFormSchema>;
+export type lessonVideoSchemaType = z.infer<typeof lessonVideoSchema>;

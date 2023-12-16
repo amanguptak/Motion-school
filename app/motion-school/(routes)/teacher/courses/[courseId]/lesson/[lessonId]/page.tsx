@@ -6,6 +6,8 @@ import { redirect } from "next/navigation";
 import React from "react";
 import { CustomIcon } from "@/components/custom-icon";
 import LessonInfo from "./_components/lessonInfo";
+import LessonAccess from "./_components/lessonaccess";
+import LessonVideo from "./_components/lessonvideo";
 
 interface LessonProps {
   params: {
@@ -42,7 +44,7 @@ const Lesson = async ({ params }: LessonProps) => {
 
   const isCompleted = requiredFields.every(Boolean);
   return (
-    <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7 m-6  lg:mx-auto shadow-lg items-center justify-center max-w-4xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7 m-6  mt-4 lg:mx-auto shadow-lg items-center justify-center max-w-4xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div>
         <Link
           className="flex items-center space-x-2 cursor-pointer"
@@ -66,13 +68,31 @@ const Lesson = async ({ params }: LessonProps) => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-8 space-y-4 md:space-y-0">
+      <div className="grid md:grid-cols-12 mt-6 space-y-4 md:space-y-0  lg:gap-8">
+
+        <div className="lg:col-span-6 col-span-12">
         <LessonInfo
           initialData={lesson}
           courseId={params.courseId}
           lessonId={params.lessonId}
         />
+
+        <LessonAccess
+         initialData={lesson}
+         courseId={params.courseId}
+         lessonId={params.lessonId}
+        />
+        </div>
+        <div className="col-span-12 lg:col-span-6">
+          <LessonVideo
+            initialData={lesson}
+            courseId={params.courseId}
+            lessonId={params.lessonId}
+          />
+       </div>
       </div>
+
+     
     </div>
   );
 };

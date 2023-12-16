@@ -59,7 +59,7 @@ const router = useRouter()
 
   return (
     <>
-      <div className="col-span-6 mt-6">
+      <div className="col-span-6 mt-4">
       <div className="flex items-center gap-x-2">
             <CustomIcon size="md" icon={LayoutDashboard} />
             <h3 className="text-lg text-slate-800">
