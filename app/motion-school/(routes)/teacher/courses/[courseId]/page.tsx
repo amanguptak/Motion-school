@@ -64,7 +64,7 @@ const CourseId = async ({ params }: ParamsType) => {
   const progressText = `(${completedField}/${totalFields})`;
 
   return (
-    <div className=" lg:h-screen  h-fit  overflow-y-scroll overflow-x-hidden scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-[#e6e8fe] lg:scrollbar-track-indigo-500 p-7 m-5 shadow-lg items-center justify-center w-fit  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className=" lg:h-screen  h-fit  overflow-y-scroll max-w-6xl overflow-x-hidden scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-[#e6e8fe] lg:scrollbar-track-indigo-500 p-7 m-5 shadow-lg items-center justify-center   bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-1">
           <h1 className="text-2xl font-semibold text-slate-800">

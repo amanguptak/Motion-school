@@ -25,7 +25,7 @@ import {
 import { LayoutDashboard, Pencil } from "lucide-react";
 import { Chapter, Course } from "@prisma/client";
 import { CustomIcon } from "@/components/custom-icon";
-
+import TextEditor from "@/components/text-editor";
 interface LessonInfoProps {
   initialData: Chapter
   courseId: string;
@@ -82,7 +82,7 @@ const router = useRouter()
 
                     <FormControl>
                       <Input
-                        placeholder="Course Title"
+                        placeholder="Lesson Title"
                         disabled={isSubmitting}
                         {...field}
                       />
@@ -91,6 +91,7 @@ const router = useRouter()
                   </FormItem>
                 )}
               />
+
 
               <FormField
                 control={form.control}
@@ -102,11 +103,11 @@ const router = useRouter()
                     </FormLabel>
 
                     <FormControl>
-                      <Textarea
-                        placeholder="Course Description"
-                        disabled={isSubmitting}
-                        {...field}
-                      />
+                     <TextEditor
+                     placeHolder="Write about Lesson....."
+                      {...field}
+                     />
+                    
                     </FormControl>
                     <FormMessage />
                   </FormItem>

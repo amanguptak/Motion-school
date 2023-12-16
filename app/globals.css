@@ -6,6 +6,19 @@ html, body{
   height: 100%;
 }
 
+.ql-toolbar{
+
+  border: 1px solid white !important;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.ql-container{
+  background-color: white;
+  border: 1px solid white !important;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
