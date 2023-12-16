@@ -8,6 +8,7 @@ import { CustomIcon } from "@/components/custom-icon";
 import LessonInfo from "./_components/lessonInfo";
 import LessonAccess from "./_components/lessonaccess";
 import LessonVideo from "./_components/lessonvideo";
+import LessonYoutube from "./_components/lessonyoutube";
 
 interface LessonProps {
   params: {
@@ -68,7 +69,7 @@ const Lesson = async ({ params }: LessonProps) => {
         </span>
       </div>
 
-      <div className="grid md:grid-cols-12 mt-6 space-y-4 md:space-y-0  lg:gap-8">
+      <div className="grid md:grid-cols-12 grid-cols-1 mt-6 space-y-4 md:space-y-0  lg:gap-8">
 
         <div className="lg:col-span-6 col-span-12">
         <LessonInfo
@@ -89,6 +90,12 @@ const Lesson = async ({ params }: LessonProps) => {
             courseId={params.courseId}
             lessonId={params.lessonId}
           />
+
+          <LessonYoutube
+              initialData={lesson}
+              courseId={params.courseId}
+              lessonId={params.lessonId}
+            />
        </div>
       </div>
 

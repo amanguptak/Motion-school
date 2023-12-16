@@ -1,7 +1,7 @@
 "use client"
-
+import dynamic from 'next/dynamic';
 import { CustomIcon } from '@/components/custom-icon';
-import { Chapter } from '@prisma/client'
+import { Chapter, MuxData } from '@prisma/client'
 import { VideoIcon } from 'lucide-react';
 import * as z from "zod";
 import axios from "axios";
@@ -9,8 +9,9 @@ import { Pencil, PlusCircle, ImageIcon, ImageDown } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Course } from "@prisma/client";
-import Image from "next/image";
+// import MuxPlayer from "@mux/mux-player-react"
+import ReactPlayer from 'react-player';
+
 import {lessonVideoSchemaType} from "@/lib/validation/course"
 import { Button } from "@/components/ui/button";
 import { FileImageUpload } from "@/components/file-upload";
@@ -19,7 +20,7 @@ import React from 'react'
 
 interface LessonVideoProps{
 
-    initialData : Chapter;
+    initialData : Chapter & { muxData?: MuxData | null };
     courseId: string;
     lessonId: string;
 }
@@ -84,14 +85,15 @@ const LessonVideo = ({initialData,courseId,lessonId}:LessonVideoProps) => {
             <VideoIcon className="h-10 w-10 text-indigo-500" />
           </div>
         ) : (
-          <div className="relative aspect-video mt-2">
-            {/* <Image
-              alt="Upload"
-              fill
-              className="object-cover rounded-md"
-              src={initialData.videoUrl}
+          <div className="relative aspect-video mt-2 ">
+             {/* <MuxPlayer
+              playbackId={initialData?.muxData?.playbackId || ""}
+              
             /> */}
-            video uploaded
+            <ReactPlayer url={initialData?.videoUrl} className="[&_iframe]:rounded-lg [&_iframe]:border-2 [&_iframe]:border-white"  width={400} height={220} pip={false} controls={true} />
+
+            {/* <iframe src={initialData?.videoUrl} allowFullScreen className='border-2 w-full h-full border-white rounded-lg' /> */}
+      
           </div>
         )
       )}
@@ -116,4 +118,7 @@ const LessonVideo = ({initialData,courseId,lessonId}:LessonVideoProps) => {
   )
 }
 
-export default LessonVideo
+// export default LessonVideo
+
+
+export default dynamic(() => Promise.resolve(LessonVideo), { ssr: false });

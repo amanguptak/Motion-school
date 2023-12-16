@@ -43,6 +43,10 @@ export const chapterAccessSchema = z.object({
   isFree : z.boolean().default(false)
 })
 
+export const lessonYoutubeSchema = z.object({
+  youtubeUrl: z.string()
+});
+
 export type CourseSchema = z.infer<typeof courseSchema>;
 export type chaptersSchemaType = z.infer<typeof chaptersSchema>;
 export type chapterAccessSchemaType = z.infer<typeof chapterAccessSchema>
@@ -51,3 +55,5 @@ export type courseImageSchemaType = z.infer<typeof courseImageSchema>;
 export type courseCatSchemaType = z.infer<typeof courseCatSchema>;
 export type priceFormSchemaType = z.infer<typeof priceFormSchema>;
 export type lessonVideoSchemaType = z.infer<typeof lessonVideoSchema>;
+
+export type lessonYoutubeSchemaType = z.infer<typeof lessonYoutubeSchema>
