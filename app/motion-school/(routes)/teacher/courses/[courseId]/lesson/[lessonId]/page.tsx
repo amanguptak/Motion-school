@@ -5,7 +5,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-import { Terminal } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
@@ -64,7 +63,7 @@ const Lesson = async ({ params }: LessonProps) => {
         </Alert>
       )}
 
-      <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7   mt-2 lg:m-6 m-4 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+      <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7 lg:mt-1  mt-2 lg:m-6 m-4 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
         <div>
           <Link
             className="flex items-center space-x-2 cursor-pointer"
