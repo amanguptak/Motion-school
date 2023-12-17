@@ -5,7 +5,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 import { CustomIcon } from "@/components/custom-icon";
@@ -14,6 +13,8 @@ import LessonAccess from "./_components/lessonaccess";
 import LessonVideo from "./_components/lessonvideo";
 import LessonYoutube from "./_components/lessonyoutube";
 import { Button } from "@/components/ui/button";
+
+import { ConfirmModal } from "@/components/Confirmodal";
 
 interface LessonProps {
   params: {
@@ -81,18 +82,23 @@ const Lesson = async ({ params }: LessonProps) => {
         </div>
 
         <div className="flex gap-y-1 items-center justify-between">
-         <div>
-         <h1 className="text-2xl font-semibold text-slate-800">
-            Lesson SetUp
-          </h1>
-          <span className="text-sm text-slate-600">
-            Please Complete all steps {progressText}{" "}
-          </span>
-         </div>
+          <div>
+            <h1 className="text-2xl font-semibold text-slate-800">
+              Lesson SetUp
+            </h1>
+            <span className="text-sm text-slate-600">
+              Please Complete all steps {progressText}{" "}
+            </span>
+          </div>
 
           <div className="flex items-center space-x-2">
             <Button size="sm"> Publish </Button>
-            <Trash size={20} className="text-red-600"/>
+            <ConfirmModal deleteThing="lesson" onConfirm={() => {}}>
+              <Trash
+                size={20}
+                className="text-red-500 cursor-pointer hover:text-red-600"
+              />
+            </ConfirmModal>
           </div>
         </div>
 
