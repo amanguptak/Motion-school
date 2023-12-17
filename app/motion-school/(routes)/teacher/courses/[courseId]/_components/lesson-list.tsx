@@ -75,7 +75,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
                   {(provided) => (
                     <div
                       className={cn(
-                        "flex items-center gap-x-2  border-indigo-500 border text-slate-700 rounded-md mb-4 text-sm",
+                        "flex items-center gap-x-2  border-indigo-500 overflow-x-scroll lg:overflow-hidden  text-xs border text-slate-700 rounded-md mb-4 lg:text-sm",
                         lesson.isPublished &&
                           "bg-indigo-500 border-indigo-200 text-indigo-500"
                       )}
@@ -84,7 +84,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
                     >
                       <div
                         className={cn(
-                          "px-2 py-3 border-r border-r-amber-200 hover:bg-indigo-500 rounded-l-md transition",
+                          "px-2 py-3 border-r border-r-amber-200 hover:bg-indigo-500 rounded-l-md transition ",
                           lesson.isPublished &&
                             "border-r-indigo-200 hover:bg-indigo-200"
                         )}
@@ -94,7 +94,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
                       </div>
                      <span className="text-slate-700"> {lesson.title}</span>
                       <div className="ml-auto pr-2 flex items-center gap-x-2">
-                        {lesson.isFree && <Badge>Free</Badge>}
+                        {lesson.isFree && <Badge className="bg-amber-400 text-indigo-500">Free</Badge>}
                         <Badge
                           className={cn(
                             "bg-indigo-500",

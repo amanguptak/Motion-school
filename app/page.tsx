@@ -5,7 +5,7 @@ import Banner from "@/public/images/bann.png";
 import MobImg from "@/public/images/mob2.png"
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/public/images/motino-logo.png"
+import Logo from "@/public/images/logo-no-background.png"
 export default function Home() {
   return (
 

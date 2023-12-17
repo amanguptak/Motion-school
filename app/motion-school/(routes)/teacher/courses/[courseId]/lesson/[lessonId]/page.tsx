@@ -45,7 +45,7 @@ const Lesson = async ({ params }: LessonProps) => {
 
   const isCompleted = requiredFields.every(Boolean);
   return (
-    <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7 m-6  mt-4 lg:mx-auto shadow-lg items-center justify-center max-w-4xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7   mt-4 m-7 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div>
         <Link
           className="flex items-center space-x-2 cursor-pointer"
@@ -69,7 +69,7 @@ const Lesson = async ({ params }: LessonProps) => {
         </span>
       </div>
 
-      <div className="grid md:grid-cols-12 grid-cols-1 mt-6 space-y-4 md:space-y-0  lg:gap-8">
+      <div className="grid md:grid-cols-12 grid-cols-1 mt-6 space-y-4 md:space-y-0  lg:gap-x-16">
 
         <div className="lg:col-span-6 col-span-12">
         <LessonInfo

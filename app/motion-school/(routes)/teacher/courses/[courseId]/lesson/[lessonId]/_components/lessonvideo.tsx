@@ -90,9 +90,9 @@ const LessonVideo = ({initialData,courseId,lessonId}:LessonVideoProps) => {
               playbackId={initialData?.muxData?.playbackId || ""}
               
             /> */}
-            <ReactPlayer url={initialData?.videoUrl} className="[&_iframe]:rounded-lg [&_iframe]:border-2 [&_iframe]:border-white"  width={400} height={220} pip={false} controls={true} />
+            {/* <ReactPlayer url={initialData?.videoUrl} className="[&_iframe]:rounded-lg [&_iframe]:border-2 [&_iframe]:border-white"  width={400} height={220} pip={false} controls={true} /> */}
 
-            {/* <iframe src={initialData?.videoUrl} allowFullScreen className='border-2 w-full h-full border-white rounded-lg' /> */}
+            <iframe src={initialData?.videoUrl} allowFullScreen className='border-2 w-full h-full border-white rounded-lg' />
       
           </div>
         )
