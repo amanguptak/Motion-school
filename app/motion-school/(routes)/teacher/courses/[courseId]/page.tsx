@@ -64,7 +64,7 @@ const CourseId = async ({ params }: ParamsType) => {
   const progressText = `(${completedField}/${totalFields})`;
 
   return (
-    <div className=" lg:h-screen  h-fit  overflow-y-scroll max-w-6xl overflow-x-hidden scrollbar-thin  scrollbar-rounded-md scrollbar-thumb-[#e6e8fe] lg:scrollbar-track-indigo-500 p-7 m-6 shadow-lg items-center justify-center   bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+    <div className="  h-fit  p-7 m-6 shadow-lg items-center justify-center   bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-1">
           <h1 className="text-2xl font-semibold text-slate-800">
@@ -80,7 +80,6 @@ const CourseId = async ({ params }: ParamsType) => {
 
       <div className="grid grid-cols-1 md:grid-cols-12 mt-8 gap-x-6 space-y-4 md:space-y-0">
         <div className="col-span-6">
-         
           <CustomizeCourse initialData={course} courseId={course.id} />
 
           <SelectBox
@@ -95,7 +94,6 @@ const CourseId = async ({ params }: ParamsType) => {
         </div>
 
         <div className="col-span-6 space-y-6 ml-4">
-       
           <PriceForm initialData={course} courseId={course.id} />
 
           <ResourcesForm initialData={course} courseId={course.id} />
