@@ -15,6 +15,7 @@ import LessonYoutube from "./_components/lessonyoutube";
 import { Button } from "@/components/ui/button";
 
 import { ConfirmModal } from "@/components/Confirmodal";
+import LessonPublish from "./_components/lessonpublish";
 
 interface LessonProps {
   params: {
@@ -90,16 +91,13 @@ const Lesson = async ({ params }: LessonProps) => {
               Please Complete all steps {progressText}{" "}
             </span>
           </div>
-
-          <div className="flex items-center space-x-2">
-            <Button size="sm"> Publish </Button>
-            <ConfirmModal deleteThing="lesson" onConfirm={() => {}}>
-              <Trash
-                size={20}
-                className="text-red-500 cursor-pointer hover:text-red-600"
-              />
-            </ConfirmModal>
-          </div>
+        <LessonPublish
+        isPublished={lesson.isPublished}
+        setpComplete={isCompleted}
+         courseId={params.courseId}
+         lessonId={params.lessonId}
+        />
+       
         </div>
 
         <div className="grid md:grid-cols-12 grid-cols-1 mt-6 space-y-4 md:space-y-0  lg:gap-x-16">
