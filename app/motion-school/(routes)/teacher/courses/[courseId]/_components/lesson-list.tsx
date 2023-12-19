@@ -77,7 +77,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
                       className={cn(
                         "flex items-center gap-x-2  border-indigo-500 overflow-x-scroll lg:overflow-hidden  text-xs border text-slate-700 rounded-md mb-4 lg:text-sm",
                         lesson.isPublished &&
-                          "bg-indigo-500 border-indigo-200 text-indigo-500"
+                          "bg-amber-100 border-indigo-200 text-indigo-500"
                       )}
                       ref={provided.innerRef}
                       {...provided.draggableProps}
@@ -94,7 +94,7 @@ const LessonList = ({ items, onReorder, onEdit }: LessonsListProps) => {
                       </div>
                      <span className="text-slate-700"> {lesson.title}</span>
                       <div className="ml-auto pr-2 flex items-center gap-x-2">
-                        {lesson.isFree && <Badge className="bg-amber-400 text-indigo-500">Free</Badge>}
+                        {lesson.isFree && <Badge className="bg-amber-400 text-indigo-500 hover:bg-indigo-200 ">Free</Badge>}
                         <Badge
                           className={cn(
                             "bg-indigo-500",

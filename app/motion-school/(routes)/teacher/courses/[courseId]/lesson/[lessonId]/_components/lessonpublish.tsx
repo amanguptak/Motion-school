@@ -26,7 +26,9 @@ const onPublish = async()=>{
 setLoading(true)
         if(isPublished) {
             await axios.patch(`/api/courses/${courseId}/chapters/${lessonId}/unpublish`,)
+           
             toast.info("Lesson Unpublished")
+            router.refresh()
         }else{
             await axios.patch(`/api/courses/${courseId}/chapters/${lessonId}/publish`,)
             toast.success("Lesson Published Successfully")
@@ -60,13 +62,18 @@ setLoading(true)
   
     return (
         <div className="flex items-center space-x-2">
-        <Button size="sm" disabled={!setpComplete}> Publish </Button>
+        <Button size="sm" disabled={!setpComplete || loading} onClick={onPublish}> {isPublished ? "Hide" : "Publish"} </Button>
         <ConfirmModal deleteThing="lesson" onConfirm={onDelete}>
-          <Trash
+            {/* <Button asChild variant="ghost" disabled={loading}>
+          
+            </Button> */}
+            <Trash
             size={20}
             className="text-red-500 cursor-pointer hover:text-red-600"
+
           
           />
+       
         </ConfirmModal>
       </div>
   )

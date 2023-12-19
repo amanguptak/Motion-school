@@ -59,7 +59,7 @@ const Lesson = async ({ params }: LessonProps) => {
             <AlertTriangle size={16} className="text-blue-700" />
 
             <AlertDescription>
-              This lesson is unpublished. It will not be visible in the course
+              This lesson is unpublished. It will not be visible in the course for Learners.
             </AlertDescription>
           </div>
         </Alert>
