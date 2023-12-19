@@ -12,9 +12,9 @@ import LessonInfo from "./_components/lessonInfo";
 import LessonAccess from "./_components/lessonaccess";
 import LessonVideo from "./_components/lessonvideo";
 import LessonYoutube from "./_components/lessonyoutube";
-import { Button } from "@/components/ui/button";
 
-import { ConfirmModal } from "@/components/Confirmodal";
+
+
 import LessonPublish from "./_components/lessonpublish";
 
 interface LessonProps {
@@ -65,7 +65,7 @@ const Lesson = async ({ params }: LessonProps) => {
         </Alert>
       )}
 
-      <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7 lg:mt-1  mt-2 lg:m-6 m-4 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
+      <div className="h-fit space-y-2  lg:scrollbar-track-indigo-500 p-7 lg:mt-4  mt-2 lg:m-6 m-4 lg:mx-auto shadow-lg items-center justify-center max-w-5xl  bg-indigo-400  rounded-md bg-clip-padding backdrop-filter lg:backdrop-blur-sm bg-opacity-20 border border-gray-100">
         <div>
           <Link
             className="flex items-center space-x-2 cursor-pointer"
