@@ -49,7 +49,7 @@ const ImageForm = ({
     <div className="mt-3 ">
       <div className="text-sm flex items-center justify-between">
      
-     <div className="flex flex-row items-center space-x-2">
+     <div className="flex flex-row items-center space-x-2 mb-2">
      <CustomIcon size="md" icon={ImageDown} />
      <h3 className="text-lg text-slate-800">Image</h3>
       

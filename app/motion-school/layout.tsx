@@ -10,7 +10,10 @@ const layout = ({ children }: { children: ReactNode }) => {
 
       <div className="lg:col-span-10 col-span-12 md:col-span-9 scrollbar-thin scrollbar-rounded scrollbar-thumb-amber-200 scroll md:overflow-y-scroll ">
         <Navbar />
+        <div>
         {children}
+        </div>
+      
       </div>
     </main>
   );

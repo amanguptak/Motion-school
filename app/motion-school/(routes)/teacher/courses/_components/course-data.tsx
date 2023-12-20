@@ -57,10 +57,13 @@ export function DataTable<TData, TValue>({
     },
   });
 
-  return (
-    <div>
+  return ( 
+    <div className="shadow-lg rounded-lg p-6 border border-indigo-500 hover:shadow-indigo-600">
+  
 
-      <div className="flex items-center justify-between">
+
+    <div>
+    <div className="flex items-center justify-between">
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter course..."
@@ -78,14 +81,14 @@ export function DataTable<TData, TValue>({
       </Button>
       </div>
 
-      <div className="rounded-md border">
+      <div className="rounded-md">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id} className="shadow-md rounded-xl border-hidden">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id}> 
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -104,6 +107,7 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+               
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -147,6 +151,10 @@ export function DataTable<TData, TValue>({
           Next
         </Button>
       </div>
+    </div>
+
+
+    
     </div>
   );
 }
