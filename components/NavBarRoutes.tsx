@@ -6,12 +6,14 @@ import { DoorOpen } from "lucide-react";
 import teacher from "@/public/images/teacher.png";
 import Image from "next/image";
 import { toast } from "sonner";
+import SearchInput from "./SearchInput";
 const NavBarRoutes = () => {
   const router = useRouter();
   const path = usePathname();
   const { userId } = useAuth();
 
   const isTeacherPage = path?.startsWith("/motion-school/teacher");
+  const isSearchPage = path === "/motion-school/search";
   const teacherMode = () => {
     if (isTeacherPage) {
       router.push("/motion-school");
@@ -22,25 +24,36 @@ const NavBarRoutes = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center space-x-2">
-      {isTeacherPage ? (
-        <Button onClick={teacherMode}>
-          Exit <DoorOpen className="ml-2" />{" "}
-        </Button>
-      ) : (
-        <Image
-          title="Teacher Mode"
-          className=" cursor-pointer rounded-md mx-2"
-          height={40}
-          width={40}
-          src={teacher}
-          alt="teacher-mode "
-          onClick={teacherMode}
-        />
-      )}
+    <>
+      <div>
+        {isSearchPage && (
+          <>
+            {" "}
+            <SearchInput />{" "}
+          </>
+        )}
+      </div>
 
-      <UserButton afterSignOutUrl="/" />
-    </div>
+      <div className="flex items-center justify-center space-x-2">
+        {isTeacherPage ? (
+          <Button onClick={teacherMode}>
+            Exit <DoorOpen className="ml-2" />{" "}
+          </Button>
+        ) : (
+          <Image
+            title="Teacher Mode"
+            className=" cursor-pointer rounded-md mx-2"
+            height={40}
+            width={40}
+            src={teacher}
+            alt="teacher-mode "
+            onClick={teacherMode}
+          />
+        )}
+
+        <UserButton afterSignOutUrl="/" />
+      </div>
+    </>
   );
 };
 

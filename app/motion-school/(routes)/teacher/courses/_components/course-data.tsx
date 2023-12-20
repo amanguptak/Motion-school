@@ -12,11 +12,10 @@ import {
   getSortedRowModel,
   getFilteredRowModel,
   useReactTable,
-
 } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
 
 import {
   Table,
@@ -41,7 +40,7 @@ export function DataTable<TData, TValue>({
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
-  )
+  );
   const table = useReactTable({
     data,
     columns,
@@ -57,38 +56,35 @@ export function DataTable<TData, TValue>({
     },
   });
 
-  return ( 
+  return (
     <div className="shadow-lg rounded-lg p-6 border border-indigo-500 hover:shadow-indigo-600">
-  
-
-
-    <div>
-    <div className="flex items-center justify-between">
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter course..."
-          value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("title")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-
-        
-      </div>
-      <Button asChild>
-        <Link href="/motion-school/teacher/create">  <PlusCircle size={20} className="mr-2"/> Course</Link>
-      </Button>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center py-4">
+          <Input
+            placeholder="Filter course..."
+            value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("title")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+        </div>
+        <Button asChild>
+          <Link href="/motion-school/teacher/create">
+            {" "}
+            <PlusCircle size={20} className="mr-2" /> Course
+          </Link>
+        </Button>
       </div>
 
-      <div className="rounded-md">
+      <div className="rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="shadow-md rounded-xl border-hidden">
+              <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}> 
+                    <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -107,7 +103,6 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-               
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -151,10 +146,6 @@ export function DataTable<TData, TValue>({
           Next
         </Button>
       </div>
-    </div>
-
-
-    
     </div>
   );
 }
