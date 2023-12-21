@@ -10,8 +10,8 @@ const BeautyCard = () => {
             className=" transform md:-translate-y-[120px] -translate-y-[140px] hover:-translate-y-40 ease-out duration-300  absolute  md:w-52 md:h-52"
           />
 
-          <div className="footer mt-8 p-4">
-            <span className="text-slate-400  text-sm text-center">
+          <div className="footer mt-8 p-4 duration-300 ease-linear ">
+            <span className="text-slate-400  text-sm text-center ">
               Fueling Curiosity, Igniting Passion: Motion School, Where Learning
               Takes Flight.
             </span>

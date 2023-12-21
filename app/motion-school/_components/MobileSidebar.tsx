@@ -6,6 +6,7 @@ import {
   SheetTrigger
 } from "@/components/ui/sheet";
 import  Sidebar  from "./Sidebar";
+import MobileContent from "./MobileContent";
 
 export const MobileSidebar = () => {
   return (
@@ -14,7 +15,7 @@ export const MobileSidebar = () => {
         <Menu />
       </SheetTrigger>
       <SheetContent side="left" className="p-0 bg-white">
-        <Sidebar />
+        <MobileContent/>
       </SheetContent>
     </Sheet>
   )

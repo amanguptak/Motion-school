@@ -31,7 +31,13 @@ const teacherRoutes = [
   },
 ]
 
-export const SidebarRoutes = () => {
+interface SidebarRoutesProps{
+
+  SidebarExpand ?: boolean
+
+}
+
+export const SidebarRoutes = ({SidebarExpand}:SidebarRoutesProps) => {
   const pathname = usePathname();
 
   const isTeacherPage = pathname?.includes("/teacher");
@@ -46,6 +52,7 @@ export const SidebarRoutes = () => {
           icon={route.icon}
           label={route.label}
           href={route.href}
+          sidebarExpand={SidebarExpand}
         />
       ))}
     </div>
