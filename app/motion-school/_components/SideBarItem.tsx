@@ -59,12 +59,12 @@ export const SidebarItem = ({
 
         {sidebarExpand && (
           <div
-            className={`
+            className="
           absolute left-full rounded-md px-2 py-1 ml-6
           bg-amber-200 text-indigo-500 text-sm
           invisible opacity-20 -translate-x-3 transition-all
           group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      `}
+      "
           >
             {label}
           </div>
