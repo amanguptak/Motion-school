@@ -43,7 +43,7 @@ const Lesson = async ({ params }: LessonProps) => {
   if (!lesson) {
     redirect("/motion-school");
   }
-  const requiredFields = [lesson.title, lesson.description, lesson.videoUrl];
+  const requiredFields = [lesson.title, lesson.description , (lesson.youtubeUrl || lesson.videoUrl)];
 
   const totalFields = requiredFields.length;
   const completedFields = requiredFields.filter(Boolean).length;

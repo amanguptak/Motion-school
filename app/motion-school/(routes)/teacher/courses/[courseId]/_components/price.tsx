@@ -96,7 +96,9 @@ const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
                         disabled={isSubmitting}
                         {...field}
                       />
+                     
                     </FormControl>
+                    <FormDescription>You can also make it Free</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

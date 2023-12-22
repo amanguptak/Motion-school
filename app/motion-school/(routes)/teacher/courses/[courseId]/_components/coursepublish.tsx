@@ -23,7 +23,7 @@ const [loading , setLoading] = useState(false)
 
 const onPublish = async()=>{
     try{
-setLoading(true)
+        setLoading(true)
         if(isPublished) {
             await axios.patch(`/api/courses/${courseId}/unpublish`,)
            
@@ -33,6 +33,7 @@ setLoading(true)
             await axios.patch(`/api/courses/${courseId}/publish`,)
             toast.success("Course Published Successfully")
             router.refresh()
+            router.push("/motion-school/teacher/courses")
         }
 
     }catch(err){

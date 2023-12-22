@@ -3,6 +3,8 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
 import Categories from "./_components/categories";
+import { getCourse } from "@/actions/getCourse";
+import AllCourses from "@/components/AllCourses";
 
 interface SearchProps {
   searchParams: {
@@ -23,10 +25,13 @@ const Search = async ({ searchParams }: SearchProps) => {
     },
   });
 
+  const courses = await getCourse({userId , ...searchParams})
+
   return (
     <>
       <div className="p-4 ">
         <Categories items={categories} />
+        <AllCourses items={courses}/>
       </div>
     </>
   );
