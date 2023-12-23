@@ -25,6 +25,7 @@ const Search = async ({ searchParams }: SearchProps) => {
     },
   });
 
+  console.log(searchParams.title)
   const courses = await getCourse({userId , ...searchParams})
 
   return (

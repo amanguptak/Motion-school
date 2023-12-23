@@ -33,7 +33,7 @@ const SearchInput = () => {
       router.push(url);
     };
     handleSearch();
-  }, [debouncedValue, pathName, currentCategory]);
+  }, [debouncedValue, pathName, router, currentCategory]);
 
   return (
     <div className="relative ">

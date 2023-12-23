@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import { CustomIcon } from "./custom-icon";
 import { BookOpenText, CircleDollarSign } from "lucide-react";
 import { priceFormatter } from "@/lib/price-formatter";
@@ -25,7 +26,9 @@ const CourseCard = ({
 }: CourseProps) => {
 
   return (
-    <div className="card shadow-md h-full  p-3 cursor-pointer overflow-hidden hover:shadow-indigo-400 hover:shadow-2xl group rounded-lg ">
+   <>
+   <Link href={`/course/${id}`}>
+   <div className="card shadow-md h-full  p-3 cursor-pointer overflow-hidden hover:shadow-indigo-400 hover:shadow-2xl group rounded-lg ">
       <div className="relative card-top aspect-video rounded-md w-full overflow-hidden">
         <Image
           src={imageUrl}
@@ -60,6 +63,8 @@ const CourseCard = ({
         </span>
       </div>
     </div>
+   </Link>
+   </>
   );
 };
 

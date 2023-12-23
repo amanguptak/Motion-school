@@ -10,13 +10,13 @@ interface CourseWithProgressCategory extends Course{
 
 interface GetCourseProps {
   userId: string;
-  tittle?: string;
+  title?: string;
   categoryId?: string;
 }
 
 export const getCourse = async ({
   userId,
-  tittle,
+  title,
   categoryId,
 }: GetCourseProps):Promise<CourseWithProgressCategory[]> => {
   try {
@@ -24,7 +24,7 @@ export const getCourse = async ({
       where: {
         isPublished: true,
         title: {
-          contains: tittle,
+          contains: title,
         },
         categoryId,
       },
