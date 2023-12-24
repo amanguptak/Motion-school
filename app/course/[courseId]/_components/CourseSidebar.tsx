@@ -33,7 +33,7 @@ const CourseSidebar = async ({ course, progress }: CourseSidebarProps) => {
 
   return (
     <div className="w-52 shadow-md h-full">
-      <div className=" p-5 shadow-lg text-center flex flex-col rounded-b-lg ">
+      {/* <div className=" p-5 shadow-lg text-center flex flex-col rounded-b-lg ">
         <span className="flex justify-evenly items-center">
           {" "}
           <CustomIcon icon={BookAIcon} size="sm" />{" "}
@@ -41,7 +41,7 @@ const CourseSidebar = async ({ course, progress }: CourseSidebarProps) => {
             {course.title}
           </h1>
         </span>
-      </div>
+      </div> */}
 
       <div>
         {course.chapters.map((chapter) => (

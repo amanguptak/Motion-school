@@ -6,6 +6,7 @@ import React, { ReactNode } from 'react'
 import CourseSidebar from './_components/CourseSidebar'
 import Navbar from '@/app/motion-school/_components/Navbar'
 import { getProgress } from '@/actions/getProgress'
+import {CourseNavBar} from './_components/CourseNavBar'
 
 interface CourseLayoutProps{
     children: React.ReactNode
@@ -55,7 +56,8 @@ const CourseLayout = async({children , params}:CourseLayoutProps) => {
       </div>
 
       <div className=" w-screen scrollbar-thin scrollbar-rounded scrollbar-thumb-amber-200 scroll md:overflow-y-scroll ">
-        <Navbar/>
+        <CourseNavBar  course={course}
+       progress={userProgressCount}/>
         <div>
         {children}
         </div>
