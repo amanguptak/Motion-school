@@ -39,6 +39,7 @@ model Course {
   @@fulltext([title])
 }
 
+// This field likely represents the identifier of the user who created or owns the course. Each course is associated with a specific user through this userId field, indicating which user is the creator or owner of the course.
 //Note: Attachment table should be diffrent from Course table attachements key it should not be same as Attachments(Like this othrerwise it will create an error)
 
 model Attachment {

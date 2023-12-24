@@ -7,6 +7,7 @@ import teacher from "@/public/images/teacher.png";
 import Image from "next/image";
 import { toast } from "sonner";
 import SearchInput from "./SearchInput";
+import Link from "next/link";
 const NavBarRoutes = () => {
   const router = useRouter();
   const path = usePathname();
@@ -14,6 +15,7 @@ const NavBarRoutes = () => {
 
   const isTeacherPage = path?.startsWith("/motion-school/teacher");
   const isSearchPage = path === "/motion-school/search";
+  const isStudentCourse = path?.startsWith("/course")
   const teacherMode = () => {
     if (isTeacherPage) {
       router.push("/motion-school");
@@ -35,10 +37,11 @@ const NavBarRoutes = () => {
       </div>
 
       <div className="flex items-center justify-center space-x-2">
-        {isTeacherPage ? (
-          <Button onClick={teacherMode}>
+        {isTeacherPage || isStudentCourse ? (
+          <Link href="/motion-school">
+          <Button>
             Exit <DoorOpen className="ml-2" />{" "}
-          </Button>
+          </Button></Link>
         ) : (
           <Image
             title="Teacher Mode"
