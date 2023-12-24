@@ -27,9 +27,7 @@ const course = await db.course.findUnique({
    return redirect('/')
   } 
 
-  return (
-    <div>Course</div>
-  )
+  return  redirect(`/course/${course.id}/lesson/${course?.chapters[0]?.id}`)
 }
 
 export default Course

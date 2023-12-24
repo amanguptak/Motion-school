@@ -49,7 +49,7 @@ const onPublish = async()=>{
 
     
             await axios.delete(`/api/courses/${courseId}`)
-            toast.info("Lesson deleted successfully")
+            toast.info("Course deleted successfully")
             router.refresh()
             router.push(`/motion-school/teacher/courses`)
 

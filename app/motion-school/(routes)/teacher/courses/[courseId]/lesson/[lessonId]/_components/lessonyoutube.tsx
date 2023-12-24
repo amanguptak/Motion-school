@@ -107,7 +107,7 @@ const router = useRouter()
             
             <div className="hidden lg:block">
 
-            <ReactPlayer url={initialData?.youtubeUrl} height={250} width={440} controls={true}/>
+            <ReactPlayer url={initialData?.youtubeUrl} height={280} width={525} controls={true}/>
 
             </div>
             <div className="block lg:hidden">

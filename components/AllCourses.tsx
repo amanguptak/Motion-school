@@ -19,6 +19,7 @@ const AllCourses = ({ items }: AllCourseProps) => {
       <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-2 lg:gap-3 mt-3 space-x-2">
         {items.map((course) => (
           <CourseCard
+            key={course.id}
             title={course.title}
             imageUrl={course.imageUrl!}
             description={course.description!}
