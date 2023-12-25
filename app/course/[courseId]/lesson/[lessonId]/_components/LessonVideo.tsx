@@ -54,9 +54,9 @@ const LessonVideo = ({
       )}
 
       {!isLocked && (
-        <div className="text-center w-full">
+        <div className="flex items-center justify-center w-full">
           <div className="relative aspect-video h-fit w-fit mt-2  [&_iframe]:rounded-lg [&_iframe]:border-2 [&_iframe]:border-white">
-            {lesson?.youtubeUrl && (
+            {(lesson?.youtubeUrl && !lesson?.videoUrl)&&(
               <div>
                 <div className="hidden lg:block">
                   <ReactPlayer
@@ -78,12 +78,12 @@ const LessonVideo = ({
               </div>
             )}
 
-            {lesson?.videoUrl && (
-              <div>
+            {(lesson?.videoUrl)&&(
+              <div className="relative aspect-video h-fit w-fit mt-2  [&_iframe]:rounded-lg [&_iframe]:border-2 [&_iframe]:border-white">
                 <div className="hidden lg:block">
                   <ReactPlayer
                     url={lesson?.videoUrl!}
-                    className="h-8 "
+                    className=""
                     width={1010}
                     height={550}
                     controls={true}
