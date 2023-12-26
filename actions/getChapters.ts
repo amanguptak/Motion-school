@@ -30,6 +30,7 @@ export const getChapter = async ({
       },
       select: {
         price: true,
+        title:true,
       }
     });
 
@@ -51,12 +52,13 @@ export const getChapter = async ({
     let nextChapter: Chapter | null = null;
 
     if (purchase) {
-      const attachments = await db.attachment.findMany({
-        where: {
-          courseId: courseId,
-        },
-      });
+      
     }
+    attachments = await db.attachment.findMany({
+      where: {
+        courseId: courseId,
+      },
+    });
 
     if (chapter.isFree || purchase) {
       //    if(chapter.videoUrl){
