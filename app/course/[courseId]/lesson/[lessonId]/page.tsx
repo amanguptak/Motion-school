@@ -77,7 +77,7 @@ const Lesson = async ({ params }: lessonProps) => {
                   </TooltipTrigger>
 
                   <TooltipContent>
-                    <p>Buy And Unlock All Chapters Of This Course</p>
+                    <p>Unlock All Chapters Of This Course</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

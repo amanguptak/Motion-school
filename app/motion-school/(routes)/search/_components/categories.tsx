@@ -17,6 +17,9 @@ import {
 } from "react-icons/fc";
 import CategoryType from "./categorytype";
 
+// Record is utility type in ts
+
+
 const iconMap: Record<Category["name"], IconType> = {
   Photography: FcCompactCamera,
   "Computer Engineering": FcCommandLine,
