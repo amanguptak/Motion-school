@@ -6,13 +6,9 @@ import LessonVideo from "./_components/LessonVideo";
 import { Button } from "@/components/ui/button";
 import { priceFormatter } from "../../../../../lib/price-formatter";
 import { Separator } from "@/components/ui/separator";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import CourseAttachments from "./_components/CourseAttachments";
+import BuyButton from "./_components/BuyButton";
 
 interface lessonProps {
   params: {
@@ -68,25 +64,12 @@ const Lesson = async ({ params }: lessonProps) => {
             {chapter.title}
           </h3>
 
-          {isLocked ? (
-            <>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger className="w-full lg:w-fit mt-2 lg:mt-0 bg-indigo-600 hover-bg-indigo-700 text-white text-sm p-2 rounded-lg">
-                    Buy {priceFormatter(course.price!)}
-                  </TooltipTrigger>
-
-                  <TooltipContent>
-                    <p>Unlock All Chapters Of This Course</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </>
-          ) : (
-            <span className="text-green-600 font-semibold cursor-pointer hover:text-green-900">
-              Free
-            </span>
-          )}
+    <BuyButton
+      isLocked={isLocked}
+      coursePrice={course.price!}
+      courseId = {params.courseId}
+    />
+          
         </div>
         <Separator />
         <div>
