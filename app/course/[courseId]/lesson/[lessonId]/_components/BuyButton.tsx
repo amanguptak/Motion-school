@@ -9,15 +9,20 @@ import {
 import { priceFormatter } from '@/lib/price-formatter';
 import { toast } from 'sonner';
 import axios from 'axios';
+import { Button } from '@/components/ui/button';
 
 interface BuyButtonProps{
     isLocked : boolean,
     coursePrice : number,
-    courseId:string
+    courseId:string,
+
 }
 
 const BuyButton = ({isLocked,coursePrice , courseId}:BuyButtonProps) => {
     const [isLoading , setLoading] = useState(false)
+
+ 
+
 
     const onPayment = async () => {
         try{
@@ -34,7 +39,7 @@ const BuyButton = ({isLocked,coursePrice , courseId}:BuyButtonProps) => {
 
   return (
     <div>
-        {isLocked ? (
+      
             <>
               <TooltipProvider>
                 <Tooltip>
@@ -48,11 +53,7 @@ const BuyButton = ({isLocked,coursePrice , courseId}:BuyButtonProps) => {
                 </Tooltip>
               </TooltipProvider>
             </>
-          ) : (
-            <span className="text-green-600 font-semibold cursor-pointer hover:text-green-900">
-              Free
-            </span>
-          )}
+     
     </div>
   )
 }

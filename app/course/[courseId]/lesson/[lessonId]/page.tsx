@@ -9,6 +9,8 @@ import { Separator } from "@/components/ui/separator";
 
 import CourseAttachments from "./_components/CourseAttachments";
 import BuyButton from "./_components/BuyButton";
+import { db } from "@/lib/db";
+import CompleteLesson from "./_components/CompleteLesson";
 
 interface lessonProps {
   params: {
@@ -64,16 +66,24 @@ const Lesson = async ({ params }: lessonProps) => {
             {chapter.title}
           </h3>
 
-    <BuyButton
-      isLocked={isLocked}
-      coursePrice={course.price!}
-      courseId = {params.courseId}
-    />
-          
+          {isLocked ? (
+            <BuyButton
+              isLocked={isLocked}
+              coursePrice={course.price!}
+              courseId={params.courseId}
+            />
+          ) : (
+            <CompleteLesson 
+            courseId={params.courseId}
+            lessonId={params.lessonId}
+            isCompleted={!!userProgress?.isCompleted}
+            nextChapterId={nextChapter?.id}
+            />
+          )}
         </div>
         <Separator />
         <div>
-          <CourseAttachments attachments={attachments}/>
+          <CourseAttachments attachments={attachments} />
         </div>
       </div>
     </div>
