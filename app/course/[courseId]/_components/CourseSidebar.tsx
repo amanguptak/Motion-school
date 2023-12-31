@@ -6,6 +6,7 @@ import React from "react";
 import { CustomIcon } from "@/components/custom-icon";
 import { BookAIcon } from "lucide-react";
 import CourseItem from "./CourseItem";
+import CourseProgress from '@/components/CourseProgress';
 
 interface CourseSidebarProps {
   course: Course & {
@@ -41,6 +42,16 @@ const CourseSidebar = async ({ course, progress }: CourseSidebarProps) => {
           Lessons
           </h1>
         </span>
+        <div>
+          {purchase && (
+            <div className="mt-4">
+              <CourseProgress
+              variant="success"
+              value={progress}
+              />
+            </div>
+          )}
+        </div>
       </div> 
 
       <div>
