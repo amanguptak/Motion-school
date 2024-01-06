@@ -27,6 +27,7 @@ const AllCourses = ({ items }: AllCourseProps) => {
             id={course.id!}
             chaptersLength={course.chapters.length}
             category={course.category?.name}
+            progress={course.progress}
           />
         ))}
       </div>

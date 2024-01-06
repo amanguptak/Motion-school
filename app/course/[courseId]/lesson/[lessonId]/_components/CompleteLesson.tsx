@@ -31,6 +31,9 @@ const CompleteLesson = ({
       await axios.put(`/api/courses/${courseId}/chapters/${lessonId}/progress`, {
         isCompleted: !isCompleted
       });
+      if (!isCompleted && nextChapterId) {
+        router.push(`/courses/${courseId}/chapters/${nextChapterId}`);
+      }
       toast.success("Progress updated");
       router.refresh();
     } catch (err) {

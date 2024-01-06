@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CustomIcon } from "./custom-icon";
 import { BookOpenText, CircleDollarSign } from "lucide-react";
 import { priceFormatter } from "@/lib/price-formatter";
+import CourseProgress from './CourseProgress';
 
 interface CourseProps {
   id: string;
@@ -13,6 +14,7 @@ interface CourseProps {
   imageUrl: string;
   chaptersLength: number;
   category ?: string;
+  progress ?: number | null;
 }
 
 const CourseCard = ({
@@ -22,7 +24,8 @@ const CourseCard = ({
   price,
   imageUrl,
   chaptersLength,
-  category
+  category,
+  progress
 }: CourseProps) => {
 
   return (
@@ -37,14 +40,26 @@ const CourseCard = ({
           className="object-cover hover:scale-125 ease-out duration-300 transition"
         />
       </div>
-      <div className="content lg:h-20 h-24 flex flex-col mt-2 ">
+      <div className="content lg:h-28 h-30 flex flex-col mt-2 ">
         <p className="lg:text-lg text-md text-slate-800 font-semibold group-hover:text-indigo-600">
           {title}
         </p>
         
         <p className="text-sm text-slate-600 text-wrap line-clamp-2 lg:line-clamp-1">{description}</p>
         <p className="text-xs font-medium group-hover:text--400 text-slate-600">{category}</p>
+        <div className="mt-2">
+
+{
+      progress !== null && <CourseProgress
+      value={progress!}
+      variant="success"
+      />
+    }
+</div>
+       
       </div>
+    
+
       <div className=" footer md:flex items-center justify-between ">
         <span className="flex items-center space-x-2 ">
           <CustomIcon icon={BookOpenText} size="sm" />
@@ -53,7 +68,9 @@ const CourseCard = ({
           </span>
         </span>
 
-        <span className="text-sm mt-1 group-hover:text-green-700 flex items-center group">
+       {
+        progress === null && <>
+         <span className="text-sm mt-1 group-hover:text-green-700 flex items-center group">
           {" "}
           <CircleDollarSign
             size={20}
@@ -61,7 +78,10 @@ const CourseCard = ({
           />{" "}
           {price === null ? "Free" : priceFormatter(price)}
         </span>
+        </>
+       }
       </div>
+      
     </div>
    </Link>
    </>
