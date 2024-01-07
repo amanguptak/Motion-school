@@ -5,7 +5,7 @@ const layout = ({ children }: { children: ReactNode }) => {
 
   // grid grid-cols-12 md:col-span-3 lg:col-span-2 lg:col-span-10 col-span-12 md:col-span-9 
   return (
-    <main className="h-screen overflow-hidden flex">
+    <main className="h-screen lg:overflow-hidden flex">
       <div className=" hidden  lg:block md:flex  sticky  flex-col inset-y-0">
         <Sidebar />
       </div>
