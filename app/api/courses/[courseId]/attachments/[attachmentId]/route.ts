@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 export const DELETE = async (
-  req: Response,
+  req: Request,
   { params }: { params: { courseId: string; attachmentId: string } }
 ) => {
   try {
