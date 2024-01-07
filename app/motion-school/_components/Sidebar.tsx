@@ -7,12 +7,12 @@ import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Sidebar = () => {
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand] = useState(true);
   // localStorage.setItem('Expand', expand.toString());
   return (
     <div
       className={cn(
-        " h-screen p-2   lg:block hover:shadow-indigo-700 cursor-pointer shadow-2xl relative duration-300 ease-linear",
+        " p-2 lg:block hover:shadow-indigo-700 cursor-pointer shadow-2xl relative duration-300 ease-linear",
         expand ? "w-16" : "w-52"
       )}
     >

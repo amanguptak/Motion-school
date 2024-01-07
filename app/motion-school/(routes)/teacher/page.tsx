@@ -1,9 +1,10 @@
-import React from 'react'
+
+import { redirect } from 'next/navigation'
+
 
 const Teacher = () => {
-  return (
-    <div>Teacher</div>
-  )
+  return redirect("/motion-school/teacher/courses")
+  
 }
 
 export default Teacher
