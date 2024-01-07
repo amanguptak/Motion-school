@@ -32,7 +32,7 @@ const CompleteLesson = ({
         isCompleted: !isCompleted
       });
       if (!isCompleted && nextChapterId) {
-        router.push(`/courses/${courseId}/chapters/${nextChapterId}`);
+        router.push(`/course/${courseId}/lesson/${nextChapterId}`);
       }
       toast.success("Progress updated");
       router.refresh();
