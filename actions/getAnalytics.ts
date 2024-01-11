@@ -15,6 +15,7 @@ const groupCourse = (purchases: PurchaseWithCourse[]) => {
     }
     grouped[courseTitle] += purchase.course.price!;
   });
+
   return grouped;
 };
 
@@ -31,6 +32,7 @@ export const getAnalytics = async (userId: string) => {
         course: true,
       },
     });
+    console.log(purchases, "checking grouped purchase");
     const totalEarnings = groupCourse(purchases);
     console.log("Analyticsd", totalEarnings);
     const data = Object.entries(totalEarnings).map(([courseTitle, total]) => ({

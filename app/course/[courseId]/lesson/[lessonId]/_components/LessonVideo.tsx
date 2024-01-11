@@ -12,6 +12,7 @@ interface LessonVideoProps {
   courseId: string;
   nextChapterId: string;
   isLocked: boolean;
+  isFree: boolean;
 
   lesson: Chapter;
 }
@@ -22,6 +23,7 @@ const LessonVideo = ({
   courseId,
   nextChapterId,
   isLocked,
+  isFree,
   lesson,
 }: LessonVideoProps) => {
   // let player;
@@ -46,14 +48,14 @@ const LessonVideo = ({
             <Loader2 className="h-8 w-8 animate-spin text-secondary" />
           </div>
         )} */}
-      {isLocked && (
+      {(isLocked && isFree) && (
         <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-slate-700 flex-col gap-y-2 text-secondary">
           <Lock className="h-8 w-8" />
           <p className="text-sm">This chapter is locked</p>
         </div>
       )}
 
-      {!isLocked && (
+      {(!isLocked || !isFree) && (
         <div className="flex items-center justify-center w-full">
           <div className="relative aspect-video h-fit w-fit mt-2  [&_iframe]:rounded-lg [&_iframe]:border-2 [&_iframe]:border-white">
             {(lesson?.youtubeUrl && !lesson?.videoUrl)&&(

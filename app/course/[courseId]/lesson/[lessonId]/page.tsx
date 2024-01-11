@@ -11,6 +11,8 @@ import CourseAttachments from "./_components/CourseAttachments";
 import BuyButton from "./_components/BuyButton";
 import { db } from "@/lib/db";
 import CompleteLesson from "./_components/CompleteLesson";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { AlertTriangle, CheckCircle, Computer } from "lucide-react";
 
 interface lessonProps {
   params: {
@@ -41,13 +43,30 @@ const Lesson = async ({ params }: lessonProps) => {
   if (!chapter || !course) {
     return redirect("/");
   }
-  const isLocked = !chapter.isFree && !purchase;
+  const isLocked = !purchase;
+  const isFree = !chapter.isFree
 
   return (
     <div>
-      {userProgress?.isCompleted && <>Chapter complete put banner</>}
+      {userProgress?.isCompleted && <Alert className="bg-green-500">
+          <div className="flex items-center space-x-2">
+            <CheckCircle size={16} className="text-white" />
 
-      {isLocked && "Purchace banner"}
+            <AlertDescription className="text-white">
+   Congratulation 🥳 This course is completed .
+            </AlertDescription>
+          </div>
+        </Alert>}
+
+      {isLocked && <Alert>
+          <div className="flex items-center space-x-2">
+            <AlertTriangle size={16} className="text-blue-700" />
+
+            <AlertDescription>
+              This Course is not Purchased. It will not be visible in the Progress Section.
+            </AlertDescription>
+          </div>
+        </Alert>}
 
       <div>
         <div className="p-4">
@@ -58,6 +77,7 @@ const Lesson = async ({ params }: lessonProps) => {
             nextChapterId={nextChapter?.id!}
             lesson={chapter}
             isLocked={isLocked}
+            isFree={isFree}
           />
         </div>
 
@@ -66,19 +86,25 @@ const Lesson = async ({ params }: lessonProps) => {
             {chapter.title}
           </h3>
 
-          {isLocked ? (
+          {isLocked && isFree ? (
             <BuyButton
               isLocked={isLocked}
               coursePrice={course.price!}
               courseId={params.courseId}
             />
           ) : (
-            <CompleteLesson 
+           !isLocked ? (<> <CompleteLesson 
             courseId={params.courseId}
             lessonId={params.lessonId}
             isCompleted={!!userProgress?.isCompleted}
             nextChapterId={nextChapter?.id}
+            /></>):(<>
+              <BuyButton
+              isLocked={isLocked}
+              coursePrice={course.price!}
+              courseId={params.courseId}
             />
+            </>)
           )}
         </div>
         <Separator />
