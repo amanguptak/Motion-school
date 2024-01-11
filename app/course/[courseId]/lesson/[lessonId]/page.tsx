@@ -13,6 +13,9 @@ import { db } from "@/lib/db";
 import CompleteLesson from "./_components/CompleteLesson";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertTriangle, CheckCircle, Computer } from "lucide-react";
+import Glitter from "@/components/Glitter";
+import { getProgress } from "@/actions/getProgress";
+import { Badge } from "@/components/ui/badge";
 
 interface lessonProps {
   params: {
@@ -40,33 +43,44 @@ const Lesson = async ({ params }: lessonProps) => {
     chapterId: params.lessonId,
   });
 
+
+
   if (!chapter || !course) {
     return redirect("/");
   }
   const isLocked = !purchase;
-  const isFree = !chapter.isFree
+  const isFree = !chapter.isFree;
+  const userProgressCount = await getProgress(userId, params.courseId);
+
 
   return (
     <div>
-      {userProgress?.isCompleted && <Alert className="bg-green-500">
+      { userProgressCount === 100 ? (
+        <Alert className="bg-green-500">
           <div className="flex items-center space-x-2">
             <CheckCircle size={16} className="text-white" />
 
             <AlertDescription className="text-white">
-   Congratulation 🥳 This course is completed .
+              Congratulation 🥳 This course is completed .
             </AlertDescription>
+            <Glitter isConfettiActive={userProgressCount === 100} />
           </div>
-        </Alert>}
+        </Alert>
+      ): <></>}
+       
 
-      {isLocked && <Alert>
+      {isLocked && (
+        <Alert>
           <div className="flex items-center space-x-2">
             <AlertTriangle size={16} className="text-blue-700" />
 
             <AlertDescription>
-              This Course is not Purchased. It will not be visible in the Progress Section.
+              This Course is not Purchased. It will not be visible in the
+              Progress Section.
             </AlertDescription>
           </div>
-        </Alert>}
+        </Alert>
+      )}
 
       <div>
         <div className="p-4">
@@ -92,21 +106,36 @@ const Lesson = async ({ params }: lessonProps) => {
               coursePrice={course.price!}
               courseId={params.courseId}
             />
+          ) : !isLocked ? (
+            <>
+              {" "}
+              <CompleteLesson
+                courseId={params.courseId}
+                lessonId={params.lessonId}
+                isCompleted={!!userProgress?.isCompleted}
+                nextChapterId={nextChapter?.id}
+              />
+            </>
           ) : (
-           !isLocked ? (<> <CompleteLesson 
-            courseId={params.courseId}
-            lessonId={params.lessonId}
-            isCompleted={!!userProgress?.isCompleted}
-            nextChapterId={nextChapter?.id}
-            /></>):(<>
+            <>
               <BuyButton
-              isLocked={isLocked}
-              coursePrice={course.price!}
-              courseId={params.courseId}
-            />
-            </>)
+                isLocked={isLocked}
+                coursePrice={course.price!}
+                courseId={params.courseId}
+              />
+            </>
           )}
+          
         </div>
+
+    {!isLocked &&
+         ( <div className="m-5 mb-2 mt-0">
+        <span className="text-slate-800 text-sm font-bold"> Chapter Status :</span>  { userProgress?.isCompleted ? (
+          <Badge variant="secondary">Completed</Badge>
+         ): <Badge variant="destructive">Not completed</Badge>}
+           </div>)
+    }
+      
         <Separator />
         <div>
           <CourseAttachments attachments={attachments} />
