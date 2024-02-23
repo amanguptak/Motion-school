@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+# Motion School
+
+Welcome to Motion School - An advanced Learning Management System (LMS) platform designed to provide a modern and user-friendly educational experience.
+
+## Features
+
+### Next.js 13 with App Router
+
+Motion School is developed using Next.js 13 with the App Router, leveraging the latest features and enhancements for efficient client-side routing and improved performance. This ensures smooth navigation between pages and seamless user experience.
+
+### TypeScript
+
+To ensure a robust and modern frontend architecture, Motion School is implemented using TypeScript. TypeScript adds static typing to JavaScript, improving code quality, catching errors early in the development process, and enhancing developer productivity.
+
+### Prisma
+
+Prisma is utilized for seamless data management in Motion School. Prisma provides a type-safe database client and a powerful query builder, enabling efficient interactions with the database and ensuring data integrity throughout the application.
+
+### Stripe
+
+Motion School integrates Stripe for secure payment processing. With Stripe, users can make payments securely and conveniently, enhancing the platform's usability and enabling monetization of educational content.
+
+### React Player
+
+For advanced video streaming capabilities, Motion School employs React Player. React Player offers powerful video streaming features, ensuring high-quality playback and reliable delivery of educational video content to users.
+
+### Tailwind
+
+Tailwind CSS is employed for modern, responsive styling in Motion School. Tailwind's utility-first approach allows for rapid development of visually appealing interfaces that are consistent and responsive across devices.
+
+### Multifaceted Authentication
+
+Motion School features a multifaceted authentication system, supporting various login options including Google, GitHub, and email login. This authentication system is implemented using Clerk, ensuring a seamless and secure login experience for users.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Motion School, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository**: Clone this repository to your local machine using the following command:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    git clone <repository-url>
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install Dependencies**: Install project dependencies by running:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3. **Set up Environment Variables**: Create a `.env` file in the root directory and define your environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+ 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the Development Server**: Start the development server by running:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+    The server should now be running on `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For detailed documentation on Motion School and its features, please refer to the [documentation](./docs/).
+
+
+## License
+
+Motion School is open-source software licensed under the [MIT license](./LICENSE).
+
+---
