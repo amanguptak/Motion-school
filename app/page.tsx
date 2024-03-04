@@ -36,7 +36,8 @@ export default function Home() {
           <p className="tracking-tight text-md text-justify font-md">
             Embark on a transformative e-learning journey at Motion School, your
             premier online destination. Unleash learning in motion, experience
-            innovation fused with education anytime, anywhere.
+            innovation fused with education anytime, anywhere.<br/>
+            <span className="text-indigo-600 font-bold">&copy; 2024 Motion-Aman. All rights reserved.</span>
           </p>
           <Button className="cursor-pointer transform  hover:scale-125  transition-transform duration-300 ease-in-out">
             {" "}
