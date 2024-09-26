@@ -36,13 +36,6 @@ Motion School features a multifaceted authentication system, supporting various 
 
 ## Getting Started
 
-To get started with Motion School, follow these steps:
-
-1. **Clone the Repository**: Clone this repository to your local machine using the following command:
-
-    ```bash
-    git clone <repository-url>
-    ```
 
 2. **Install Dependencies**: Install project dependencies by running:
 
