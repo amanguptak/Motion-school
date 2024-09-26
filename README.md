@@ -60,8 +60,7 @@ Motion School features a multifaceted authentication system, supporting various 
 For detailed documentation on Motion School and its features, please refer to the [documentation](./docs/).
 
 
-## License
 
-Motion School is open-source software licensed under the [MIT license](./LICENSE).
+
 
 ---
